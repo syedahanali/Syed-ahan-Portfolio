@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Syed Ahan Ali — Student Web Developer. Learning and building projects with HTML, CSS, and JavaScript."
+    />
+    <title>Syed Ahan Ali | Student Web Developer</title>
+
+    <!-- Google Fonts: Poppins for headings, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ============================= NAVBAR ============================= -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">Ahan<span>.</span></a>
+
+        <!-- Hamburger toggle (mobile) -->
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#learning" class="nav-link">Learning</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ============================= HERO ============================= -->
+    <header class="hero" id="home">
+      <div class="hero-bg-glow"></div>
+      <div class="hero-content">
+        <p class="hero-greeting reveal">Hi, I'm</p>
+        <h1 class="hero-name reveal">Syed Ahan Ali</h1>
+        <h2 class="hero-role reveal">Student Web Developer</h2>
+        <p class="hero-intro reveal">
+          A passionate student learning web development and crafting clean,
+          responsive websites with HTML, CSS, and JavaScript. I love turning
+          ideas into interactive, user-friendly experiences.
+        </p>
+        <div class="hero-buttons reveal">
+          <a href="#skills" class="btn btn-primary">View My Skills</a>
+          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+      </div>
+      <a href="#about" class="scroll-down" aria-label="Scroll down">
+        <span></span>
+      </a>
+    </header>
+
+    <!-- ============================= ABOUT ============================= -->
+    <section class="section about" id="about">
+      <div class="container">
+        <h2 class="section-title reveal">About Me</h2>
+        <div class="about-grid">
+          <div class="about-image reveal">
+            <div class="about-image-frame">
+              <div class="about-avatar">SA</div>
+            </div>
+          </div>
+          <div class="about-text reveal">
+            <p>
+              I'm a student web developer with a strong passion for building
+              things on the web. My journey started with curiosity about how
+              websites work, and it quickly grew into a love for coding.
+            </p>
+            <p>
+              I'm currently learning and building projects using
+              <strong>HTML</strong>, <strong>CSS</strong>, and
+              <strong>JavaScript</strong> — the core technologies of the web.
+              Every project I build teaches me something new, and I'm
+              constantly pushing myself to improve.
+            </p>
+            <p>
+              My goal is to become a professional web developer who creates
+              beautiful, functional, and accessible websites that people love
+              to use.
+            </p>
+            <div class="about-stats">
+              <div class="stat">
+                <span class="stat-number">3+</span>
+                <span class="stat-label">Projects Built</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Core Technologies</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Dedication</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= SKILLS ============================= -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <h2 class="section-title reveal">My Skills</h2>
+        <p class="section-subtitle reveal">
+          The core technologies I use to bring ideas to life on the web.
+        </p>
+        <div class="skills-grid">
+          <!-- HTML5 Card -->
+          <div class="skill-card reveal">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                <path d="M1.5 0h21l-1.91 21.562L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.447 4.41l.696 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.235l.33 4.171L12 19.351l5.372-1.443.744-8.157H8.531z"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">HTML5</h3>
+            <p class="skill-desc">
+              Semantic markup, accessible structure, and clean page
+              architecture for every project.
+            </p>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-level="90"></div>
+            </div>
+          </div>
+
+          <!-- CSS3 Card -->
+          <div class="skill-card reveal">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">CSS3</h3>
+            <p class="skill-desc">
+              Responsive layouts, Flexbox &amp; Grid, animations, and modern
+              styling that looks great on any device.
+            </p>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-level="85"></div>
+            </div>
+          </div>
+
+          <!-- JavaScript Card -->
+          <div class="skill-card reveal">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.87-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.16-.604.928-.796 1.539-.53.393.26.746.692.992 1.165 1.052-.691 1.052-.691 1.792-1.155-.272-.422-.41-.615-.587-.81-.628-.706-1.485-1.065-2.852-1.035l-.711.09c-.681.17-1.33.535-1.71 1.035-1.144 1.295-.816 3.555.566 4.485 1.352 1.015 3.335 1.245 3.592 2.195.25 1.045-.77 1.385-1.762 1.26-.727-.166-1.132-.57-1.572-1.305l-1.855 1.07c.21.482.436.697.792 1.105 1.715 1.742 6.015 1.665 6.765-1.015.03-.135.255-.705.07-1.65zM10.5 9.155h-2.25c0 2.185-.01 4.36-.01 6.55 0 1.395.07 2.675-.157 3.07-.375.775-1.335.68-1.772.53-.445-.225-.672-.545-.935-1.005-.072-.125-.125-.225-.172-.395l-1.865 1.14c.31.635.767 1.185 1.352 1.535.875.525 2.05.69 3.275.41.798-.232 1.485-.713 1.84-1.442.52-.955.41-2.115.405-3.405.012-2.095 0-4.19 0-6.295z"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">JavaScript</h3>
+            <p class="skill-desc">
+              Interactive logic, DOM manipulation, and dynamic features that
+              make websites come alive.
+            </p>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-level="75"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= LEARNING ============================= -->
+    <section class="section learning" id="learning">
+      <div class="container">
+        <h2 class="section-title reveal">What I've Learned</h2>
+        <p class="section-subtitle reveal">
+          A breakdown of the skills I've picked up across the three core web
+          technologies.
+        </p>
+        <div class="learning-grid">
+          <!-- HTML column -->
+          <div class="learning-card reveal">
+            <div class="learning-header">
+              <span class="learning-badge html-badge">HTML</span>
+              <h3>HTML Mastery</h3>
+            </div>
+            <ul class="learning-list">
+              <li>Semantic HTML5 elements &amp; page structure</li>
+              <li>Forms, inputs, and accessibility attributes</li>
+              <li>SEO-friendly meta tags and linking</li>
+              <li>Audio, video, and image embedding</li>
+              <li>Tables and lists for organized content</li>
+            </ul>
+          </div>
+
+          <!-- CSS column -->
+          <div class="learning-card reveal">
+            <div class="learning-header">
+              <span class="learning-badge css-badge">CSS</span>
+              <h3>CSS Mastery</h3>
+            </div>
+            <ul class="learning-list">
+              <li>Flexbox and CSS Grid for modern layouts</li>
+              <li>Responsive design with media queries</li>
+              <li>Animations, transitions, and hover effects</li>
+              <li>CSS variables and custom properties</li>
+              <li>Dark / light theme styling</li>
+            </ul>
+          </div>
+
+          <!-- JavaScript column -->
+          <div class="learning-card reveal">
+            <div class="learning-header">
+              <span class="learning-badge js-badge">JS</span>
+              <h3>JavaScript Mastery</h3>
+            </div>
+            <ul class="learning-list">
+              <li>Variables, functions, and data types</li>
+              <li>DOM manipulation and event handling</li>
+              <li>Form validation and user input</li>
+              <li>Arrays, objects, and loops</li>
+              <li>Fetch API and async JavaScript basics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= CONTACT ============================= -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <h2 class="section-title reveal">Get In Touch</h2>
+        <p class="section-subtitle reveal">
+          Have a question or want to work together? Send me a message!
+        </p>
+        <div class="contact-wrap">
+          <form class="contact-form reveal" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+              <span class="form-error" id="nameError"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+              <span class="form-error" id="emailError"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+              <span class="form-error" id="messageError"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+            <p class="form-success" id="formSuccess"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= FOOTER ============================= -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <div class="footer-name">
+          <h3>Syed Ahan Ali</h3>
+          <p>Student Web Developer</p>
+        </div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; <span id="year"></span> Syed Ahan Ali. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
