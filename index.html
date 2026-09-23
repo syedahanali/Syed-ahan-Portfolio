@@ -1,10 +1,1308 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Syed Ahan Ali</title>
-  <meta http-equiv="refresh" content="0; url=Cloud.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Syed Ahan Ali | Video Editor &amp; Web Designer</title>
+<meta name="description" content="Syed Ahan Ali is a video editor and web designer creating clean, engaging videos and modern websites for freelance projects.">
+<meta name="theme-color" content="#0B1120">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Syed Ahan Ali | Video Editor &amp; Web Designer">
+<meta property="og:description" content="Clean, engaging videos and modern website designs to help ideas stand out online.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230B1120'/%3E%3Crect x='.75' y='.75' width='30.5' height='30.5' rx='8.5' fill='none' stroke='%232A62F5' stroke-width='1.5'/%3E%3Ctext x='16' y='21.5' font-size='15' font-weight='700' text-anchor='middle' fill='%234C8DFF' font-family='Arial,sans-serif'%3ESA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ 
+<style>
+/* ==========================================================================
+   DESIGN TOKENS
+   ========================================================================== */
+:root {
+  --bg: #0B1120;
+  --surface: #111a2e;
+  --surface-2: #16213a;
+  --line: rgba(151, 166, 210, .14);
+  --line-2: rgba(151, 166, 210, .26);
+  --text: #e8ecf6;
+  --muted: #98a5c0;
+  --blue: #4c8dff;          /* electric blue: accents, icons, small text */
+  --blue-600: #2a62f5;      /* electric blue: button fill (AA contrast with white) */
+  --violet: #8b7bff;        /* secondary accent, used sparingly */
+  --danger: #ff8f8f;
+  --ok: #4ade80;
+  --nav-h: 72px;
+  --font: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+ 
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+body.modal-open { overflow: hidden; }
+img, svg, video { display: block; max-width: 100%; }
+h1, h2, h3, p, ul { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+section[id] { scroll-margin-top: var(--nav-h); }
+ 
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 40px);
+}
+.skip-link {
+  position: absolute; left: 16px; top: -64px; z-index: 100;
+  background: var(--blue-600); color: #fff; padding: 10px 16px; border-radius: 10px; font-weight: 600;
+}
+.skip-link:focus { top: 12px; }
+ 
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+  min-height: 48px; padding: 0 1.4rem;
+  border-radius: 12px; border: 1px solid transparent;
+  font-weight: 600; font-size: .975rem; line-height: 1; white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease, color .2s ease, opacity .2s ease;
+}
+.btn svg { flex: none; }
+.btn-primary { background: var(--blue-600); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,.18); }
+.btn-primary:hover { background: #2f68f8; transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+.btn-secondary { background: rgba(255,255,255,.04); border-color: var(--line-2); color: var(--text); }
+.btn-secondary:hover { border-color: rgba(76,141,255,.65); background: rgba(76,141,255,.09); transform: translateY(-1px); }
+.btn-sm { min-height: 42px; padding: 0 1.1rem; font-size: .9rem; }
+.btn[disabled], .btn[aria-disabled="true"] { opacity: .5; cursor: not-allowed; transform: none; }
+.btn[disabled]:hover { background: rgba(255,255,255,.04); border-color: var(--line-2); transform: none; }
+ 
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+.site-header {
+  position: sticky; top: 0; z-index: 50; height: var(--nav-h);
+  background: rgba(11,17,32,.72);
+  -webkit-backdrop-filter: saturate(140%) blur(16px);
+  backdrop-filter: saturate(140%) blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s ease, background-color .3s ease;
+}
+.site-header.scrolled, .site-header.open { border-bottom-color: var(--line); background: rgba(11,17,32,.9); }
+.nav { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { font-weight: 700; font-size: 1.125rem; letter-spacing: -.015em; }
+.nav-links { display: none; list-style: none; padding: 0; gap: 4px; }
+.nav-links a {
+  display: block; padding: 8px 14px; border-radius: 10px;
+  color: var(--muted); font-size: .925rem; font-weight: 500;
+  transition: color .2s ease, background-color .2s ease;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a[aria-current="true"] { color: var(--text); background: rgba(76,141,255,.12); }
+.nav-cta { display: none; }
+ 
+.menu-toggle {
+  width: 44px; height: 44px; border-radius: 12px; cursor: pointer;
+  border: 1px solid var(--line-2); background: rgba(255,255,255,.04);
+  display: grid; place-items: center; padding: 0;
+}
+.menu-icon { position: relative; width: 18px; height: 12px; }
+.menu-icon span {
+  position: absolute; left: 0; right: 0; height: 2px; border-radius: 2px; background: var(--text);
+  transition: transform .25s ease, opacity .2s ease, top .25s ease;
+}
+.menu-icon span:nth-child(1) { top: 0; }
+.menu-icon span:nth-child(2) { top: 5px; }
+.menu-icon span:nth-child(3) { top: 10px; }
+.site-header.open .menu-icon span:nth-child(1) { top: 5px; transform: rotate(45deg); }
+.site-header.open .menu-icon span:nth-child(2) { opacity: 0; }
+.site-header.open .menu-icon span:nth-child(3) { top: 5px; transform: rotate(-45deg); }
+ 
+.mobile-panel {
+  position: absolute; top: 100%; left: 0; right: 0;
+  background: #0B1120;
+  border-bottom: 1px solid var(--line);
+  padding: 8px clamp(20px, 4vw, 40px) 24px;
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: opacity .2s ease, transform .2s ease, visibility .2s;
+}
+.site-header.open .mobile-panel { opacity: 1; visibility: visible; transform: none; }
+.mobile-panel ul { list-style: none; padding: 0; }
+.mobile-panel .m-link {
+  display: block; padding: 14px 4px; font-size: 1.1rem; font-weight: 500;
+  border-bottom: 1px solid var(--line); color: var(--muted);
+}
+.mobile-panel .m-link[aria-current="true"] { color: var(--text); }
+.mobile-panel .btn { width: 100%; margin-top: 20px; }
+ 
+@media (min-width: 900px) {
+  .nav-links { display: flex; }
+  .nav-cta { display: inline-flex; }
+  .menu-toggle, .mobile-panel { display: none; }
+}
+ 
+/* ==========================================================================
+   LAYOUT HELPERS
+   ========================================================================== */
+.section { padding-block: clamp(72px, 10vw, 120px); border-top: 1px solid var(--line); }
+.section-head { margin-bottom: clamp(36px, 5vw, 56px); }
+h2 { font-size: clamp(1.9rem, 4vw, 2.75rem); line-height: 1.12; letter-spacing: -.03em; font-weight: 700; text-wrap: balance; }
+ 
+/* Scroll reveal: subtle, and only on headings + card groups */
+.reveal { transition: opacity .6s ease var(--d, 0ms), translate .6s ease var(--d, 0ms); }
+.js-reveal .reveal:not(.in) { opacity: 0; translate: 0 12px; }
+ 
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero { position: relative; overflow: hidden; padding-block: clamp(48px, 8vw, 96px) clamp(72px, 9vw, 112px); }
+.hero-bg { position: absolute; inset: 0; pointer-events: none; }
+.hero-bg::before {
+  content: ""; position: absolute; right: -12%; top: -22%; width: 62%; aspect-ratio: 1;
+  background: radial-gradient(closest-side, rgba(42,98,245,.24), transparent);
+}
+.hero-bg::after {
+  content: ""; position: absolute; left: -10%; bottom: -30%; width: 44%; aspect-ratio: 1;
+  background: radial-gradient(closest-side, rgba(139,123,255,.12), transparent);
+}
+.hero-grid-lines {
+  position: absolute; inset: 0; opacity: .55;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 72% 35%, #000, transparent 75%);
+  mask-image: radial-gradient(ellipse 60% 70% at 72% 35%, #000, transparent 75%);
+}
+.hero-layout { position: relative; display: grid; gap: 56px; align-items: center; }
+@media (min-width: 960px) { .hero-layout { grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); gap: 64px; } }
+ 
+.hero-label { font-size: .75rem; font-weight: 600; letter-spacing: .16em; color: var(--blue); margin-bottom: 22px; }
+.hero h1 {
+  font-size: clamp(2.4rem, 6.2vw, 3.9rem); line-height: 1.06; letter-spacing: -.038em; font-weight: 700;
+  text-wrap: balance;
+}
+.hero-lead { margin-top: 24px; max-width: 32rem; font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: var(--muted); }
+.hero-actions { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 479px) { .hero-actions .btn { width: 100%; } }
+ 
+.availability {
+  margin-top: 32px; display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 16px 8px 12px; border-radius: 999px;
+  border: 1px solid rgba(74,222,128,.25); background: rgba(74,222,128,.06);
+  font-size: .875rem; font-weight: 500; color: #d5f7e1;
+}
+.availability .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(74,222,128,.16); }
+ 
+/* Hero visual: a small editing suite + a website wireframe (decorative) */
+.hero-visual { position: relative; padding-bottom: 76px; }
+.editor {
+  border-radius: 22px; border: 1px solid var(--line-2); padding: 14px; overflow: hidden;
+  background: linear-gradient(180deg, rgba(22,33,58,.9), rgba(15,23,42,.92));
+  box-shadow: 0 34px 80px -34px rgba(42,98,245,.5), inset 0 1px 0 rgba(255,255,255,.06);
+}
+.editor-bar { display: flex; justify-content: space-between; align-items: center; padding: 0 4px 12px; font-size: .75rem; color: var(--muted); }
+.editor-bar .pill { padding: 2px 10px; border-radius: 999px; border: 1px solid var(--line-2); }
+.timecode { font-variant-numeric: tabular-nums; color: var(--text); letter-spacing: .02em; }
+.preview {
+  position: relative; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden;
+  background:
+    radial-gradient(90% 90% at 18% 12%, rgba(42,98,245,.55), transparent 60%),
+    radial-gradient(70% 80% at 92% 98%, rgba(139,123,255,.28), transparent 60%),
+    #0d1730;
+}
+.preview::before { content: ""; position: absolute; inset: 7%; border: 1px dashed rgba(255,255,255,.14); border-radius: 6px; }
+.play {
+  position: absolute; left: 50%; top: 44%; transform: translate(-50%, -50%);
+  width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(11,17,32,.55); border: 1px solid rgba(255,255,255,.28);
+}
+.caption {
+  position: absolute; left: 50%; bottom: 13%; transform: translateX(-50%);
+  padding: 5px 12px; border-radius: 8px; white-space: nowrap;
+  background: rgba(6,10,20,.72); font-size: clamp(.62rem, 1.5vw, .82rem); font-weight: 600;
+}
+.timeline { position: relative; margin-top: 14px; padding-top: 2px; }
+.ruler {
+  height: 8px; margin-bottom: 8px;
+  background: repeating-linear-gradient(90deg, rgba(151,166,210,.38) 0 1px, transparent 1px 22px) bottom / 100% 6px no-repeat;
+}
+.track { display: flex; gap: 4px; height: 30px; margin-bottom: 6px; }
+.clip {
+  border-radius: 7px; border: 1px solid rgba(76,141,255,.5);
+  background: linear-gradient(180deg, rgba(76,141,255,.38), rgba(42,98,245,.2));
+}
+.track.captions { height: 22px; }
+.track.captions .clip { border-color: rgba(139,123,255,.45); background: rgba(139,123,255,.2); }
+.clip.gap { border-color: transparent; background: none; }
+.wave { display: flex; align-items: center; gap: 2px; height: 30px; }
+.wave i { flex: 1; min-width: 1px; border-radius: 2px; background: rgba(76,141,255,.55); }
+.playhead {
+  position: absolute; top: 0; bottom: 0; left: 30%; width: 2px; margin-left: -1px;
+  background: #fff; box-shadow: 0 0 10px rgba(76,141,255,.8);
+}
+.playhead::before {
+  content: ""; position: absolute; top: -2px; left: -5px; width: 12px; height: 10px; background: #fff;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+ 
+.mini-site {
+  position: absolute; right: 12px; bottom: 0; width: 44%; max-width: 250px;
+  border-radius: 14px; border: 1px solid var(--line-2); padding: 10px;
+  background: rgba(13,21,38,.94);
+  box-shadow: 0 22px 50px -22px rgba(0,0,0,.8);
+}
+@media (min-width: 960px) { .mini-site { right: -14px; } }
+@media (max-width: 639px) { .mini-site { display: none; } .hero-visual { padding-bottom: 0; } }
+.ms-dots { display: flex; gap: 4px; margin-bottom: 9px; }
+.ms-dots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(151,166,210,.35); }
+.ms-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.ms-line { height: 5px; border-radius: 3px; background: rgba(151,166,210,.35); }
+.ms-pill { width: 26px; height: 8px; border-radius: 4px; background: var(--blue-600); }
+.ms-title { height: 8px; border-radius: 4px; background: rgba(232,236,246,.85); margin-bottom: 6px; }
+.ms-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin-top: 10px; }
+.ms-cards span { height: 24px; border-radius: 6px; border: 1px solid var(--line-2); background: rgba(76,141,255,.08); }
+.ms-cards span:last-child { background: rgba(139,123,255,.14); }
+ 
+/* ==========================================================================
+   ABOUT
+   ========================================================================== */
+.about-grid { display: grid; gap: 48px; align-items: center; }
+@media (min-width: 900px) { .about-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 80px; } }
+.about-text p { margin-top: 24px; max-width: 36rem; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.6; color: #c6cfe4; }
+ 
+/* Portrait slot. Replace by setting SITE_CONFIG.profileImage in the script. */
+.portrait {
+  position: relative; width: 100%; max-width: 400px; aspect-ratio: 4 / 5; margin-inline: auto;
+  border-radius: 28px; border: 1px solid var(--line-2); overflow: hidden;
+  background:
+    radial-gradient(80% 60% at 28% 8%, rgba(42,98,245,.38), transparent 62%),
+    radial-gradient(60% 50% at 100% 100%, rgba(139,123,255,.22), transparent 62%),
+    var(--surface);
+}
+@media (min-width: 900px) { .portrait { margin-inline: 0 0; justify-self: end; } }
+.portrait-mono {
+  position: absolute; inset: 0 0 18% 0; display: grid; place-items: center;
+  font-size: clamp(5.5rem, 16vw, 8.5rem); font-weight: 700; letter-spacing: -.06em;
+  color: transparent; -webkit-text-stroke: 1.5px rgba(160,190,255,.42);
+}
+.portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.portrait-caption {
+  position: absolute; left: 14px; right: 14px; bottom: 14px; padding: 14px 16px; border-radius: 16px;
+  background: rgba(11,17,32,.72); border: 1px solid var(--line-2);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.portrait-caption strong { display: block; font-weight: 600; }
+.portrait-caption span { font-size: .875rem; color: var(--muted); }
+ 
+/* ==========================================================================
+   CARDS (services, why)
+   ========================================================================== */
+.grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .grid-services, .grid-why { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .grid-services { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+ 
+.card, .project {
+  position: relative; border: 1px solid var(--line);
+  transition: border-color .25s ease, transform .25s ease, opacity .6s ease var(--d, 0ms), translate .6s ease var(--d, 0ms);
+}
+.card {
+  border-radius: 20px; padding: 28px;
+  background: linear-gradient(180deg, rgba(22,33,58,.55), rgba(17,26,46,.55));
+}
+.card:hover { border-color: rgba(76,141,255,.45); transform: translateY(-3px); }
+.icon-tile {
+  width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center;
+  color: var(--blue); background: rgba(76,141,255,.1); border: 1px solid rgba(76,141,255,.24);
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+.card:hover .icon-tile { background: var(--blue-600); color: #fff; border-color: transparent; }
+.card[data-kind="web"] .icon-tile { color: #b3a9ff; background: rgba(139,123,255,.1); border-color: rgba(139,123,255,.28); }
+.card[data-kind="web"]:hover { border-color: rgba(139,123,255,.5); }
+.card[data-kind="web"]:hover .icon-tile { background: #6d5df0; color: #fff; }
+.card h3 { margin-top: 22px; font-size: 1.125rem; font-weight: 600; letter-spacing: -.01em; }
+.card p { margin-top: 10px; color: var(--muted); font-size: .975rem; }
+ 
+.why-layout { display: grid; gap: 40px; }
+@media (min-width: 1024px) {
+  .why-layout { grid-template-columns: minmax(0, .62fr) minmax(0, 1.38fr); gap: 72px; align-items: start; }
+  .why-layout .section-head { position: sticky; top: calc(var(--nav-h) + 32px); margin-bottom: 0; }
+}
+.why-card { padding: 26px; }
+.why-card .ico { color: var(--blue); }
+.why-card h3 { margin-top: 18px; }
+ 
+/* ==========================================================================
+   PROJECTS
+   ========================================================================== */
+.projects-grid { display: grid; gap: 24px; grid-template-columns: 1fr; max-width: 760px; margin-inline: auto; }
+@media (min-width: 1024px) { .projects-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: none; } }
+ 
+.project { display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; background: var(--surface); }
+.project:hover { border-color: rgba(76,141,255,.42); transform: translateY(-3px); }
+ 
+.media {
+  position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; overflow: hidden;
+  padding: 0; border: 0; text-align: left; background: #0d1730;
+}
+button.media { cursor: pointer; }
+.media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transition: transform .5s ease; }
+button.media:hover > img { transform: scale(1.03); }
+.scene { display: none; }
+.scene svg { position: absolute; left: 0; top: 0; width: 100%; height: 84%; stroke: rgba(160,190,255,.5); fill: rgba(76,141,255,.1); stroke-width: 1.2; stroke-linecap: round; }
+.scene svg .hl { fill: var(--blue); stroke: none; }
+.scene svg .bar { fill: rgba(160,190,255,.55); stroke: none; }
+.scene[data-v="0"] { background: radial-gradient(90% 100% at 15% 0%, rgba(42,98,245,.5), transparent 62%), radial-gradient(60% 70% at 100% 100%, rgba(139,123,255,.22), transparent 62%), #0d1730; }
+.scene[data-v="1"] { background: radial-gradient(80% 100% at 50% 0%, rgba(42,98,245,.42), transparent 64%), radial-gradient(60% 70% at 0% 100%, rgba(139,123,255,.2), transparent 62%), #0e1832; }
+.scene[data-v="2"] { background: radial-gradient(80% 100% at 85% 0%, rgba(139,123,255,.36), transparent 62%), radial-gradient(70% 70% at 0% 100%, rgba(42,98,245,.3), transparent 62%), #0e1730; }
+.media-tag {
+  position: absolute; left: 14px; bottom: 14px; padding: 5px 11px; border-radius: 999px;
+  font-size: .72rem; font-weight: 500; color: var(--muted);
+  background: rgba(6,10,20,.62); border: 1px solid var(--line-2);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.media.has-poster .media-tag { display: none; }
+.play-btn {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center; color: #fff;
+  background: rgba(11,17,32,.6); border: 1px solid rgba(255,255,255,.32);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  transition: transform .25s ease, background-color .25s ease;
+}
+button.media:hover .play-btn { transform: translate(-50%, -50%) scale(1.08); background: var(--blue-600); border-color: transparent; }
+ 
+.project-body { display: flex; flex-direction: column; flex: 1; padding: 24px; }
+.project-cat { font-size: .72rem; font-weight: 600; letter-spacing: .14em; color: var(--blue); }
+.project h3 { margin-top: 10px; font-size: 1.25rem; font-weight: 600; letter-spacing: -.02em; }
+.project-desc { margin-top: 10px; color: var(--muted); font-size: .975rem; }
+.project-foot { margin-top: auto; padding-top: 22px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.project-note { font-size: .8125rem; color: var(--muted); }
+ 
+/* Project modal (native <dialog>) */
+.modal {
+  width: min(960px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 0; margin: auto;
+  border: 1px solid var(--line-2); border-radius: 24px; overflow: auto;
+  background: var(--surface); color: var(--text);
+}
+.modal::backdrop { background: rgba(5,9,18,.8); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.modal-close {
+  position: absolute; top: 12px; right: 12px; z-index: 2; width: 42px; height: 42px; border-radius: 12px; cursor: pointer;
+  display: grid; place-items: center; background: rgba(11,17,32,.75); border: 1px solid var(--line-2);
+  transition: background-color .2s ease, border-color .2s ease;
+}
+.modal-close:hover { background: rgba(76,141,255,.2); border-color: rgba(76,141,255,.6); }
+.modal-media { display: grid; place-items: center; background: #050912; }
+.modal-media .frame { width: 100%; aspect-ratio: 16 / 9; background: #000; }
+.modal-media.vertical .frame { width: auto; height: min(72dvh, 640px); aspect-ratio: 9 / 16; max-width: 100%; }
+.frame iframe, .frame video { display: block; width: 100%; height: 100%; border: 0; background: #000; }
+.frame .frame-msg { height: 100%; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--muted); }
+.modal-body { padding: 24px clamp(20px, 4vw, 32px) 28px; }
+.modal-body h3 { margin-top: 8px; font-size: 1.5rem; letter-spacing: -.02em; }
+.modal-body p { margin-top: 12px; color: var(--muted); max-width: 46rem; }
+.modal-body .btn { margin-top: 20px; }
+ 
+/* ==========================================================================
+   TOOLS
+   ========================================================================== */
+.tools-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 900px) { .tools-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.tool {
+  display: flex; align-items: center; gap: 14px; padding: 18px; border-radius: 16px;
+  border: 1px solid var(--line); background: rgba(17,26,46,.5); font-weight: 600;
+  transition: border-color .25s ease, background-color .25s ease, opacity .6s ease var(--d, 0ms), translate .6s ease var(--d, 0ms);
+}
+.tool:hover { border-color: rgba(76,141,255,.45); background: rgba(76,141,255,.06); }
+.tool .icon-tile { width: 40px; height: 40px; border-radius: 12px; flex: none; }
+.tool:hover .icon-tile { background: rgba(76,141,255,.18); color: var(--blue); border-color: rgba(76,141,255,.3); }
+ 
+/* ==========================================================================
+   CTA
+   ========================================================================== */
+.cta-panel {
+  position: relative; overflow: hidden; text-align: center; border-radius: 32px; border: 1px solid var(--line-2);
+  padding: clamp(44px, 7vw, 84px) clamp(22px, 5vw, 64px);
+  background:
+    radial-gradient(60% 120% at 50% 0%, rgba(42,98,245,.24), transparent 70%),
+    radial-gradient(40% 80% at 100% 100%, rgba(139,123,255,.13), transparent 70%),
+    var(--surface);
+}
+.cta-panel p { margin-top: 16px; font-size: clamp(1.05rem, 2vw, 1.2rem); color: var(--muted); }
+.cta-panel .btn { margin-top: 32px; }
+ 
+/* ==========================================================================
+   CONTACT
+   ========================================================================== */
+.contact-grid { display: grid; gap: 40px; }
+@media (min-width: 960px) { .contact-grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 72px; align-items: start; } }
+.contact-lead { margin-top: 20px; max-width: 28rem; font-size: 1.125rem; color: var(--muted); }
+.contact-copy .availability { margin-top: 28px; }
+.contact-direct { margin-top: 20px; }
+.contact-direct a { color: var(--blue); font-weight: 500; text-decoration: underline; text-underline-offset: 4px; }
+ 
+.form-card {
+  border: 1px solid var(--line-2); border-radius: 24px; padding: clamp(22px, 4vw, 36px);
+  background: linear-gradient(180deg, rgba(22,33,58,.6), rgba(17,26,46,.6));
+}
+.field { display: grid; gap: 8px; margin-bottom: 20px; }
+.field label { font-size: .875rem; font-weight: 500; }
+.input {
+  width: 100%; min-height: 50px; padding: 12px 14px; border-radius: 12px; outline: none;
+  border: 1px solid var(--line-2); background: #0b1324; line-height: 1.5;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+textarea.input { min-height: 150px; resize: vertical; }
+.input::placeholder { color: #7683a0; }
+.input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(76,141,255,.22); }
+.field.invalid .input { border-color: var(--danger); }
+.field.invalid .input:focus { box-shadow: 0 0 0 3px rgba(255,143,143,.2); }
+.error-msg { color: var(--danger); font-size: .8125rem; }
+.error-msg:empty { display: none; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+ 
+.form-actions { margin-top: 4px; }
+.form-actions .btn { width: 100%; }
+@media (min-width: 640px) { .form-actions .btn { width: auto; min-width: 180px; } }
+.spinner {
+  display: none; width: 16px; height: 16px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.35); border-top-color: #fff; animation: spin .7s linear infinite;
+}
+.is-loading .spinner { display: block; }
+.is-loading .btn-primary { cursor: progress; opacity: .85; }
+@keyframes spin { to { transform: rotate(360deg); } }
+ 
+.form-status {
+  display: none; align-items: flex-start; gap: 12px; margin-top: 20px;
+  padding: 14px 16px; border-radius: 12px; font-size: .925rem;
+}
+.form-status.show { display: flex; }
+.form-status svg { flex: none; margin-top: 2px; }
+.form-status.success { background: rgba(74,222,128,.08); border: 1px solid rgba(74,222,128,.32); color: #cdf6dc; }
+.form-status.error { background: rgba(255,143,143,.08); border: 1px solid rgba(255,143,143,.34); color: #ffd5d5; }
+.form-status a { text-decoration: underline; text-underline-offset: 3px; }
+ 
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer { border-top: 1px solid var(--line); padding-block: 56px 32px; background: linear-gradient(180deg, transparent, rgba(5,9,18,.55)); }
+.footer-top { display: grid; gap: 32px; }
+@media (min-width: 800px) { .footer-top { grid-template-columns: 1fr auto; align-items: start; } }
+.footer-brand strong { display: block; font-size: 1.125rem; letter-spacing: -.015em; }
+.footer-brand span { color: var(--muted); font-size: .95rem; }
+.footer-email { display: block; margin-top: 10px; color: var(--muted); font-size: .925rem; transition: color .2s ease; }
+.footer-email:hover { color: var(--text); }
+.footer-nav ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 26px; }
+.footer-nav a { color: var(--muted); font-size: .925rem; transition: color .2s ease; }
+.footer-nav a:hover { color: var(--text); }
+.footer-bottom {
+  margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center;
+}
+.footer-bottom small { color: var(--muted); font-size: .85rem; }
+.socials { display: flex; gap: 10px; }
+.social {
+  width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center;
+  border: 1px solid var(--line-2); color: var(--muted);
+  transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+}
+a.social:hover { color: #fff; border-color: rgba(76,141,255,.65); background: rgba(76,141,255,.12); }
+span.social { border-style: dashed; opacity: .55; cursor: default; }
+ 
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; transition-delay: 0ms !important; }
+}
+</style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+ 
+<!-- ========================= 1. NAVBAR ========================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="Syed Ahan Ali, back to top">Syed Ahan Ali</a>
+ 
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#home" data-nav-link>Home</a></li>
+        <li><a href="#about" data-nav-link>About</a></li>
+        <li><a href="#services" data-nav-link>Services</a></li>
+        <li><a href="#projects" data-nav-link>Projects</a></li>
+        <li><a href="#contact" data-nav-link>Contact</a></li>
+      </ul>
+    </nav>
+ 
+    <a class="btn btn-primary btn-sm nav-cta" href="#contact">Let's Work Together</a>
+ 
+    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
+      <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+  </div>
+ 
+  <div class="mobile-panel" id="mobilePanel">
+    <nav aria-label="Mobile">
+      <ul>
+        <li><a class="m-link" href="#home" data-nav-link>Home</a></li>
+        <li><a class="m-link" href="#about" data-nav-link>About</a></li>
+        <li><a class="m-link" href="#services" data-nav-link>Services</a></li>
+        <li><a class="m-link" href="#projects" data-nav-link>Projects</a></li>
+        <li><a class="m-link" href="#contact" data-nav-link>Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary" href="#contact">Let's Work Together</a>
+  </div>
+</header>
+ 
+<main id="main">
+  <noscript>
+    <div class="container" style="padding-block:24px;color:var(--muted)">This site needs JavaScript to display its content.</div>
+  </noscript>
+ 
+  <!-- ========================= 2. HERO ========================= -->
+  <section class="hero" id="home" aria-labelledby="hero-title">
+    <div class="hero-bg" aria-hidden="true"><div class="hero-grid-lines"></div></div>
+    <div class="container hero-layout">
+      <div class="hero-copy">
+        <p class="hero-label">VIDEO EDITOR &amp; WEB DESIGNER</p>
+        <h1 id="hero-title">Creative Digital Work that makes an impact.</h1>
+        <p class="hero-lead">I create clean, engaging videos and modern website designs to help ideas stand out online.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View My Work</a>
+          <a class="btn btn-secondary" href="#contact">Let's Work Together</a>
+        </div>
+        <p class="availability"><span class="dot" aria-hidden="true"></span>Available for Freelance Projects</p>
+      </div>
+ 
+      <!-- Decorative composition: video editor timeline + website wireframe. Not a real project. -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="editor">
+          <div class="editor-bar">
+            <span class="pill">16:9</span>
+            <span class="timecode" id="timecode">00:00:04:12</span>
+          </div>
+          <div class="preview">
+            <img src="timeline4.jpg" alt="Syed Ahan ali">
+            <div class="play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13l11-6.5z"/></svg></div>
+            <div class="caption">Clean cuts, clear captions</div>
+          </div>
+          <div class="timeline" id="timeline">
+            <div class="ruler"></div>
+            <div class="track">
+              <span class="clip" style="flex:24"></span><span class="clip" style="flex:34"></span>
+              <span class="clip" style="flex:16"></span><span class="clip" style="flex:26"></span>
+            </div>
+            <div class="track captions">
+              <span class="clip gap" style="flex:6"></span><span class="clip" style="flex:20"></span>
+              <span class="clip" style="flex:14"></span><span class="clip gap" style="flex:4"></span>
+              <span class="clip" style="flex:26"></span><span class="clip" style="flex:12"></span>
+            </div>
+            <div class="wave" id="wave"></div>
+            <div class="playhead" id="playhead"></div>
+          </div>
+        </div>
+        <div class="mini-site">
+          <div class="ms-dots"><i></i><i></i><i></i></div>
+          <div class="ms-row"><span class="ms-line" style="width:36%"></span><span class="ms-pill"></span></div>
+          <div class="ms-title" style="width:82%"></div>
+          <div class="ms-title" style="width:56%"></div>
+          <div class="ms-cards"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ========================= 3. ABOUT ========================= -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="container about-grid">
+      <div class="about-text reveal">
+        <h2 id="about-title">About Me</h2>
+        <p>I am Syed Ahan Ali, a video editor and web designer. I focus on creating clean, engaging, and professional digital work. I enjoy turning ideas into polished videos and modern web experiences.</p>
+      </div>
+ 
+      <!--
+        PROFILE PHOTO: this card shows a monogram placeholder on purpose.
+        To use your own photo, set SITE_CONFIG.profileImage in the script at the bottom of this file.
+      -->
+      <div class="portrait reveal" id="portrait" style="--d:100ms">
+        <div class="portrait-mono" aria-hidden="true">SA</div>
+        <img src="ahan pic.jpeg" alt="syed ahan ali">
+        <div class="portrait-caption">
+          <strong>Syed Ahan Ali</strong>
+          <span>Video Editor &amp; Web Designer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ========================= 4. SERVICES ========================= -->
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-head reveal"><h2 id="services-title">What I Do</h2></div>
+      <div class="grid grid-services" id="servicesGrid"></div>
+    </div>
+  </section>
+ 
+  <!-- ========================= 5. WHY WORK WITH ME ========================= -->
+  <section class="section" id="why" data-nav="services" aria-labelledby="why-title">
+    <div class="container why-layout">
+      <div class="section-head reveal"><h2 id="why-title">Why Work With Me</h2></div>
+      <div class="grid grid-why" id="whyGrid"></div>
+    </div>
+  </section>
+ 
+  <!-- ========================= 6. SELECTED PROJECTS ========================= -->
+  <section class="section" id="projects" aria-labelledby="projects-title">
+    <div class="container">
+      <div class="section-head reveal"><h2 id="projects-title">Selected Projects</h2></div>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+  </section>
+ 
+  <!-- ========================= 7. TOOLS ========================= -->
+  <section class="section" id="tools" data-nav="projects" aria-labelledby="tools-title">
+    <div class="container">
+      <div class="section-head reveal"><h2 id="tools-title">Tools I Use</h2></div>
+      <div class="tools-grid" id="toolsGrid"></div>
+    </div>
+  </section>
+ 
+  <!-- ========================= 8. CALL TO ACTION ========================= -->
+  <section class="section" id="cta" data-nav="contact" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="cta-panel reveal">
+        <h2 id="cta-title">Have a project or idea in mind?</h2>
+        <p>Let's create something professional together.</p>
+        <a class="btn btn-primary" href="#contact">Let's Work Together</a>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ========================= 9. CONTACT ========================= -->
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="container contact-grid">
+      <div class="contact-copy reveal">
+        <h2 id="contact-title">Let's Work Together</h2>
+        <p class="contact-lead">Have a project or idea in mind? Send me a message and let's talk about it.</p>
+        <p class="availability"><span class="dot" aria-hidden="true"></span>Available for Freelance Projects</p>
+        <p class="contact-direct" id="contactDirect" hidden></p>
+      </div>
+ 
+      <div class="form-card reveal" style="--d:100ms">
+        <form id="contactForm" novalidate>
+          <div class="field" data-field="name">
+            <label for="name">Name</label>
+            <input class="input" id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required aria-describedby="name-error">
+            <p class="error-msg" id="name-error"></p>
+          </div>
+          <div class="field" data-field="email">
+            <label for="email">Email</label>
+            <input class="input" id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required aria-describedby="email-error">
+            <p class="error-msg" id="email-error"></p>
+          </div>
+          <div class="field" data-field="message">
+            <label for="message">Message</label>
+            <textarea class="input" id="message" name="message" rows="6" placeholder="Tell me about your project" required aria-describedby="message-error"></textarea>
+            <p class="error-msg" id="message-error"></p>
+          </div>
+ 
+          <!-- Honeypot field for bots. Real visitors never see or fill it. -->
+          <div class="hp" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+ 
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit" id="submitBtn">
+              <span class="spinner" aria-hidden="true"></span>
+              <span id="submitLabel">Send a Message</span>
+            </button>
+          </div>
+ 
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+ 
+<!-- ========================= 10. FOOTER ========================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <strong>Syed Ahan Ali</strong>
+        <span>Video Editor &amp; Web Designer</span>
+        <a class="footer-email" id="footerEmail" href="mailto:syedahanaliahan@gmail.com">syedahanaliahan@gmail.com</a>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="socials" id="socials"></div>
+      <small>&copy; <span id="year">2026</span> Syed Ahan Ali. All rights reserved.</small>
+    </div>
+  </div>
+</footer>
+ 
+<!-- Project preview modal -->
+<dialog class="modal" id="projectModal" aria-labelledby="modalTitle">
+  <button class="modal-close" type="button" id="modalClose" aria-label="Close project preview">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div class="modal-media" id="modalMedia"></div>
+  <div class="modal-body">
+    <p class="project-cat" id="modalCat"></p>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+    <p id="modalDetails" hidden></p>
+    <a class="btn btn-secondary btn-sm" id="modalExternal" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" hidden>Watch on YouTube</a>
+  </div>
+</dialog>
+ 
+<script>
+(() => {
+  'use strict';
+ 
+  /* ==========================================================================
+     SITE CONFIG  ·  Everything you're likely to edit lives in this block.
+     ========================================================================== */
+  const SITE_CONFIG = {
+    // Your profile photo for the About card, e.g. 'images/syed.jpg'. Leave '' to keep the monogram.
+    profileImage: '',
+ 
+    // Optional. If set, it is shown under the contact text and offered as a fallback if sending fails.
+    contactEmail: 'syedahanaliahan@gmail.com',
+ 
+    // CONTACT FORM SETUP (required for the form to deliver email)
+    // 1. Create a free form at https://formspree.io (or use any service that accepts a JSON POST).
+    // 2. Point it at your email address in that service's dashboard.
+    // 3. Paste the endpoint below, e.g. 'https://formspree.io/f/abcdwxyz'.
+    // Endpoint IDs are public by design. Never put a private/secret API key in this file.
+    // While this is '' the form validates but reports honestly that it could not send.
+    formEndpoint: '',
+ 
+    // Extra public fields some services need (e.g. Web3Forms: { access_key: 'YOUR_PUBLIC_KEY' }).
+    formExtraFields: {},
+ 
+    // Subject line used by the form service, if it supports one.
+    formSubject: 'New message from your portfolio website',
+ 
+    // Seconds to wait for the form service before showing an error.
+    formTimeoutSeconds: 15
+  };
+ 
+  /* ==========================================================================
+     CONTENT DATA  ·  Edit text here; the page re-renders from it.
+     ========================================================================== */
+  const SERVICES = [
+    { icon: 'film',      title: 'Video Editing', description: 'Clean and engaging video editing tailored to the style and purpose of your content.' },
+    { icon: 'phone',     title: 'Short Form Reels & Shorts', description: 'Fast-paced and engaging edits for Reels, Shorts and other short-form content.' },
+    { icon: 'person',    title: 'Talking Head Video Editing', description: 'Professional editing for talking-head content with clean cuts, captions and engaging visual elements.' },
+    { icon: 'youtube',   title: 'YouTube Long Form Video Editing', description: 'Structured and engaging editing for longer YouTube videos and content.' },
+    { icon: 'letterbox', title: 'Cinematic Video Editing', description: 'Creative editing with cinematic pacing, transitions and visual polish.' },
+    { icon: 'browser',   title: 'Website Designing', description: 'Modern, responsive and clean website designs built around your brand and goals.', kind: 'web' }
+  ];
+ 
+  const WHY = [
+    { icon: 'devices', title: 'Modern & Responsive Design', description: 'Clean layouts designed to work smoothly across different screen sizes.' },
+    { icon: 'scissors', title: 'Creative Video Editing', description: 'Engaging edits with attention to pacing, structure and visual presentation.' },
+    { icon: 'check', title: 'Clean Professional Work', description: 'A strong focus on clarity, consistency, and polished presentation.' },
+    { icon: 'target', title: 'Client-Focused Approach', description: "Understanding the project goal and building the work around the client's needs." }
+  ];
+ 
+  /*
+    PROJECTS
+    To add your own work, fill in any of these fields on a project:
+      poster     Thumbnail image (16:9 works best), e.g. 'images/podcast.jpg'
+      videoUrl   A video file, e.g. 'videos/podcast.mp4'
+      youtubeUrl A YouTube link (watch, youtu.be or shorts URL)
+      details    Optional extra text shown in the project window
+      vertical   true for 9:16 videos (Reels/Shorts) so the player is portrait
+    "View Project" stays disabled until videoUrl or youtubeUrl is set.
+  */
+  const PROJECTS = [
+    {
+      id: 'podcast-video-edit', category: 'VIDEO EDITING', title: 'Podcast Video Edit',
+      description: 'Podcast-style video editing with clean cuts, pacing and engaging presentation.',
+      scene: 'podcast', poster: 'podcast.jfif', videoUrl: 'WhatsApp Video 2026-09-11 at 1.50.32 AM.mp4', youtubeUrl: '', details: '', vertical: false
+    },
+    {
+      id: 'talking-head-video-edit', category: 'VIDEO EDITING', title: 'Talking Head Video Edit',
+      description: 'Talking-head editing focused on clean cuts, captions and engaging visual flow.',
+      scene: 'talking', poster: 'talking.jfif', videoUrl: 'WhatsApp Video 2026-09-13 at 4.09.56 PM.mp4', youtubeUrl: '', details: '', vertical: false
+    },
+    {
+      id: 'short-form-video-edit', category: 'VIDEO EDITING', title: 'Short Form Video Edit',
+      description: 'Short-form editing designed for engaging social media content.',
+      scene: 'short', poster: 'short.png', videoUrl: 'WhatsApp Video 2026-09-10 at 4.16.46 PM.mp4', youtubeUrl: '', details: '', vertical: false
+    }
+  ];
+ 
+  const TOOLS = [
+    { icon: 'capcut', name: 'CapCut' },
+    { icon: 'html',   name: 'HTML' },
+    { icon: 'css',    name: 'CSS' },
+    { icon: 'spark',  name: 'AI Tools' }
+  ];
+ 
+  /* Social links: add a real URL to switch a placeholder into a working link. */
+  const SOCIALS = [
+    { icon: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/syed.ahanali/' },
+    { icon: 'tiktok',    label: 'TikTok',    url: 'https://www.tiktok.com/@syed.ahan.ali2' },
+    { icon: 'linkedin',  label: 'LinkedIn',  url: 'https://www.linkedin.com/in/syed-ahan-ali-413080436' },
+    { icon: 'whatsapp',  label: 'WhatsApp',  url: 'https://wa.me/message/VI7CYEUETNUNG1' }
+  ];
+ 
+  /* ==========================================================================
+     ICONS (24x24, stroke)
+     ========================================================================== */
+  const ICON_PATHS = {
+    film: '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 3v18M17 3v18M3 8h4M3 12h4M3 16h4M17 8h4M17 12h4M17 16h4"/>',
+    phone: '<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 9.5l3.2 2.2-3.2 2.2z"/>',
+    person: '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/>',
+    youtube: '<rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.5l5 2.5-5 2.5z"/>',
+    letterbox: '<rect x="2.5" y="4" width="19" height="16" rx="3"/><path d="M2.5 8.5h19M2.5 15.5h19M10 12h4"/>',
+    browser: '<rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01M7.5 14h9M7.5 17h5"/>',
+    devices: '<rect x="3" y="5" width="13" height="10" rx="2"/><path d="M7 19h5M9.5 15v4"/><rect x="15" y="9" width="6" height="11" rx="1.8"/>',
+    scissors: '<circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M8 7.5L20 18M8 16.5L20 6"/>',
+    check: '<circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/>',
+    target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+    capcut: '<rect x="3" y="3" width="18" height="18" rx="5"/><path d="M10 8.5l5.5 3.5-5.5 3.5z"/>',
+    html: '<path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/>',
+    css: '<path d="M9 4c-2 0-3 1-3 3v2c0 1.2-.8 2-2 3 1.2 1 2 1.8 2 3v2c0 2 1 3 3 3M15 4c2 0 3 1 3 3v2c0 1.2.8 2 2 3-1.2 1-2 1.8-2 3v2c0 2-1 3-3 3"/>',
+    spark: '<path d="M11 3l1.8 4.9L17.7 9.7 12.8 11.5 11 16.4 9.2 11.5 4.3 9.7 9.2 7.9z"/><path d="M18.5 15v4.5M16.25 17.25h4.5"/>',
+    instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/>',
+    tiktok: '<path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.3 2.4 1.9 4 4.5 4.2"/>',
+    whatsapp: '<path d="M3.5 20.5l1.4-4.3A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 8.8c0 3.2 2.7 5.9 5.9 5.9l1.1-1.6-2.1-1-.9.9c-.9-.4-1.6-1.2-2-2.1l.9-.9-1-2.1z"/>',
+    linkedin: '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v5M8 8v.01M12 16v-5M12 13c0-1.5 1-2 2-2s2 .8 2 2.3V16"/>',
+    play: '<path d="M8 5.5v13l11-6.5z" fill="currentColor" stroke="none"/>',
+    alert: '<circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5h.01"/>'
+  };
+  const icon = (name, size = 24) =>
+    `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON_PATHS[name] || ''}</svg>`;
+ 
+  /* ==========================================================================
+     HELPERS
+     ========================================================================== */
+  const $  = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  const esc = (v) => String(v).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ 
+  /* ==========================================================================
+     RENDER: services, why, tools, socials
+     ========================================================================== */
+  $('#servicesGrid').innerHTML = SERVICES.map((s, i) => `
+    <article class="card reveal" style="--d:${i * 50}ms"${s.kind ? ` data-kind="${esc(s.kind)}"` : ''}>
+      <div class="icon-tile">${icon(s.icon)}</div>
+      <h3>${esc(s.title)}</h3>
+      <p>${esc(s.description)}</p>
+    </article>`).join('');
+ 
+  $('#whyGrid').innerHTML = WHY.map((w, i) => `
+    <article class="card why-card reveal" style="--d:${i * 60}ms">
+      <span class="ico">${icon(w.icon, 28)}</span>
+      <h3>${esc(w.title)}</h3>
+      <p>${esc(w.description)}</p>
+    </article>`).join('');
+ 
+  $('#toolsGrid').innerHTML = TOOLS.map((t, i) => `
+    <div class="tool reveal" style="--d:${i * 50}ms">
+      <span class="icon-tile">${icon(t.icon, 20)}</span>
+      <span>${esc(t.name)}</span>
+    </div>`).join('');
+ 
+  $('#socials').innerHTML = SOCIALS.map((s) => s.url
+    ? `<a class="social" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(s.label)} (opens in a new tab)">${icon(s.icon, 20)}</a>`
+    : `<span class="social" role="img" aria-label="${esc(s.label)} (link not added yet)" title="${esc(s.label)}: add your link in SOCIALS">${icon(s.icon, 20)}</span>`
+  ).join('');
+ 
+  $('#year').textContent = new Date().getFullYear();
+ 
+  /* Profile photo (optional) */
+  if (SITE_CONFIG.profileImage) {
+    const img = new Image();
+    img.alt = 'Portrait of Syed Ahan Ali';
+    img.decoding = 'async';
+    img.addEventListener('load', () => { $('#portrait').prepend(img); $('.portrait-mono').hidden = true; });
+    img.src = SITE_CONFIG.profileImage; // if it fails to load, the monogram simply stays
+  }
+ 
+  /* Footer email follows the config so it only needs to be changed in one place */
+  if (SITE_CONFIG.contactEmail) {
+    const fe = $('#footerEmail');
+    fe.href = `mailto:${SITE_CONFIG.contactEmail}`;
+    fe.textContent = SITE_CONFIG.contactEmail;
+  }
+ 
+  /* Optional direct email under contact copy */
+  if (SITE_CONFIG.contactEmail) {
+    const el = $('#contactDirect');
+    el.innerHTML = `Prefer email? <a href="mailto:${esc(SITE_CONFIG.contactEmail)}">${esc(SITE_CONFIG.contactEmail)}</a>`;
+    el.hidden = false;
+  }
+ 
+  /* ==========================================================================
+     PROJECTS
+     ========================================================================== */
+  const person = (cx, cy, r) => {
+    const f = (n) => n.toFixed(1);
+    return `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(r)}"/>` +
+      `<path d="M${f(cx - 2 * r)} ${f(cy + 3.6 * r)}c0-${f(1.3 * r)} ${f(.9 * r)}-${f(2.1 * r)} ${f(2 * r)}-${f(2.1 * r)}s${f(2 * r)} ${f(.8 * r)} ${f(2 * r)} ${f(2.1 * r)}"/>`;
+  };
+  const bars = (x0, x1, y, maxH, count) => {
+    let out = '';
+    const step = (x1 - x0) / count;
+    for (let i = 0; i < count; i++) {
+      const h = 2 + maxH * Math.abs(Math.sin(i * 0.9) * Math.cos(i * 0.31 + 1));
+      out += `<rect class="bar" x="${(x0 + i * step).toFixed(1)}" y="${(y - h / 2).toFixed(1)}" width="${(step * 0.55).toFixed(1)}" height="${h.toFixed(1)}" rx=".8"/>`;
+    }
+    return out;
+  };
+  const SCENES = {
+    podcast: `${person(48, 30, 9)}${person(112, 30, 9)}${bars(50, 110, 76, 10, 24)}`,
+    talking: `${person(80, 30, 11)}<rect x="48" y="74" width="64" height="7" rx="3.5"/><rect class="hl" x="60" y="76" width="22" height="3" rx="1.5"/>`,
+    short: `<rect x="59" y="7" width="42" height="76" rx="6"/>${person(80, 32, 7.5)}<rect x="66" y="66" width="28" height="5" rx="2.5"/><rect class="hl" x="70" y="67.5" width="10" height="2" rx="1"/><circle cx="112" cy="38" r="3"/><circle cx="112" cy="50" r="3"/><circle cx="112" cy="62" r="3"/>`
+  };
+ 
+  function youtubeId(url) {
+    if (!url) return null;
+    try {
+      const u = new URL(url);
+      const host = u.hostname.replace(/^www\./, '').replace(/^m\./, '');
+      let id = null;
+      if (host === 'youtu.be') id = u.pathname.slice(1).split('/')[0];
+      else if (host === 'youtube.com' || host === 'youtube-nocookie.com') {
+        if (u.pathname === '/watch') id = u.searchParams.get('v');
+        else { const m = u.pathname.match(/^\/(?:embed|shorts|live|v)\/([\w-]+)/); id = m && m[1]; }
+      }
+      return id && /^[\w-]{6,15}$/.test(id) ? id : null;
+    } catch (e) { return null; }
+  }
+  const isReady = (p) => Boolean(youtubeId(p.youtubeUrl) || p.videoUrl);
+ 
+  function projectCard(p, i) {
+    const ready = isReady(p);
+    const inner = `
+      ${p.poster ? `<img src="${esc(p.poster)}" alt="${esc(p.title)} thumbnail" loading="lazy" decoding="async">` : ''}
+      <div class="scene" data-v="${i % 3}"><svg viewBox="0 0 160 90" preserveAspectRatio="xMidYMid meet" aria-hidden="true">${SCENES[p.scene] || ''}</svg></div>
+      <span class="media-tag">Preview coming soon</span>
+      ${ready ? `<span class="play-btn">${icon('play', 22)}</span>` : ''}`;
+    const mediaCls = `media${p.poster ? ' has-poster' : ''}`;
+    const media = ready
+      ? `<button type="button" class="${mediaCls}" data-project="${esc(p.id)}" aria-label="Play ${esc(p.title)}">${inner}</button>`
+      : `<div class="${mediaCls}">${inner}</div>`;
+    const action = ready
+      ? `<button type="button" class="btn btn-primary btn-sm" data-project="${esc(p.id)}">View Project</button>`
+      : `<button type="button" class="btn btn-secondary btn-sm" disabled aria-describedby="note-${esc(p.id)}">View Project</button>
+         <span class="project-note" id="note-${esc(p.id)}">Project link not added yet</span>`;
+    return `
+      <article class="project reveal" style="--d:${i * 70}ms">
+        ${media}
+        <div class="project-body">
+          <p class="project-cat">${esc(p.category)}</p>
+          <h3>${esc(p.title)}</h3>
+          <p class="project-desc">${esc(p.description)}</p>
+          <div class="project-foot">${action}</div>
+        </div>
+      </article>`;
+  }
+ 
+  const projectsGrid = $('#projectsGrid');
+  projectsGrid.innerHTML = PROJECTS.map(projectCard).join('');
+ 
+  /* Keep project thumbnails visible */
+$$('.media > img', projectsGrid).forEach((img) => {
+  img.addEventListener('error', () => {
+    console.error('Thumbnail failed to load:', img.src);
+    console.log('Thumbnail path:', img.src);
+  });
+});
+ 
+  /* Project modal */
+  const modal = $('#projectModal');
+  const modalMedia = $('#modalMedia');
+ 
+  function openProject(id) {
+    const p = PROJECTS.find((x) => x.id === id);
+    if (!p || !isReady(p)) return;
+ 
+    const yt = youtubeId(p.youtubeUrl);
+    const frame = document.createElement('div');
+    frame.className = 'frame';
+ 
+    if (yt) {
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${yt}?autoplay=1&rel=0&playsinline=1`;
+      iframe.title = p.title;
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture; fullscreen';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      frame.appendChild(iframe);
+    } else {
+      const video = document.createElement('video');
+      video.controls = true;
+      video.playsInline = true;
+      video.preload = 'metadata';
+      if (p.poster) video.poster = p.poster;
+      video.addEventListener('error', () => {
+        frame.innerHTML = '<div class="frame-msg">This video could not be loaded. Check the file path in PROJECTS.</div>';
+      });
+      video.src = p.videoUrl;
+      frame.appendChild(video);
+      video.play().catch(() => { /* autoplay may be blocked; controls stay available */ });
+    }
+ 
+    modalMedia.className = `modal-media${p.vertical ? ' vertical' : ''}`;
+    modalMedia.replaceChildren(frame);
+    $('#modalCat').textContent = p.category;
+    $('#modalTitle').textContent = p.title;
+    $('#modalDesc').textContent = p.description;
+    const details = $('#modalDetails');
+    details.textContent = p.details || '';
+    details.hidden = !p.details;
+    const ext = $('#modalExternal');
+    ext.hidden = !yt;
+    if (yt) ext.href = `https://www.youtube.com/watch?v=${yt}`;
+ 
+    document.body.classList.add('modal-open');
+    if (typeof modal.showModal === 'function') modal.showModal(); else modal.setAttribute('open', '');
+  }
+ 
+  projectsGrid.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-project]');
+    if (trigger && !trigger.disabled) openProject(trigger.dataset.project);
+  });
+  $('#modalClose').addEventListener('click', () => modal.close());
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.close(); }); // click on backdrop
+  modal.addEventListener('close', () => {
+    modalMedia.replaceChildren(); // stops any playing video / embed
+    document.body.classList.remove('modal-open');
+  });
+ 
+  /* ==========================================================================
+     NAVBAR: sticky state, mobile menu, active link
+     ========================================================================== */
+  const header = $('#siteHeader');
+  const toggle = $('#menuToggle');
+  const panel = $('#mobilePanel');
+ 
+  const setMenu = (open) => {
+    header.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  toggle.addEventListener('click', () => setMenu(!header.classList.contains('open')));
+  panel.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); }); // close after choosing a section
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+  document.addEventListener('click', (e) => { if (header.classList.contains('open') && !header.contains(e.target)) setMenu(false); });
+  window.matchMedia('(min-width: 900px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
+ 
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+ 
+  const navLinks = $$('[data-nav-link]');
+  if ('IntersectionObserver' in window) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        const key = en.target.dataset.nav || en.target.id;
+        navLinks.forEach((a) => {
+          if (a.getAttribute('href') === `#${key}`) a.setAttribute('aria-current', 'true');
+          else a.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    $$('main section[id]').forEach((s) => spy.observe(s));
+  }
+ 
+  /* ==========================================================================
+     HERO TIMELINE (decorative playhead + timecode)
+     ========================================================================== */
+  (function initTimeline() {
+    const wave = $('#wave');
+    wave.innerHTML = Array.from({ length: 64 }, (_, i) => {
+      const h = 18 + 78 * Math.abs(Math.sin(i * 0.63) * Math.cos(i * 0.21 + 0.6));
+      return `<i style="height:${h.toFixed(0)}%"></i>`;
+    }).join('');
+ 
+    const playhead = $('#playhead');
+    const timecode = $('#timecode');
+    const pad = (n) => String(n).padStart(2, '0');
+    const DURATION = 14000;
+    const render = (p) => {
+      const ms = p * DURATION;
+      playhead.style.left = `${(p * 100).toFixed(2)}%`;
+      timecode.textContent = `00:00:${pad(Math.floor(ms / 1000))}:${pad(Math.floor((ms % 1000) / 1000 * 30))}`;
+    };
+    render(0.3);
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+ 
+    let raf = 0; let t0 = 0;
+    const loop = (now) => { if (!t0) t0 = now - 0.3 * DURATION; render(((now - t0) % DURATION) / DURATION); raf = requestAnimationFrame(loop); };
+    new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { if (!raf) { t0 = 0; raf = requestAnimationFrame(loop); } }
+      else { cancelAnimationFrame(raf); raf = 0; }
+    }).observe($('#timeline'));
+  })();
+ 
+  /* ==========================================================================
+     SCROLL REVEAL (subtle; skipped for reduced motion / old browsers)
+     ========================================================================== */
+  (function initReveal() {
+    const items = $$('.reveal');
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+    try {
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); obs.unobserve(en.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+      document.documentElement.classList.add('js-reveal');
+      items.forEach((el) => io.observe(el));
+    } catch (err) {
+      document.documentElement.classList.remove('js-reveal'); // never leave content hidden
+    }
+  })();
+ 
+  /* ==========================================================================
+     CONTACT FORM
+     ========================================================================== */
+  const form = $('#contactForm');
+  const statusEl = $('#formStatus');
+  const submitBtn = $('#submitBtn');
+  const submitLabel = $('#submitLabel');
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+ 
+  const validators = {
+    name: (v) => (v.trim() ? '' : 'Please enter your name.'),
+    email: (v) => {
+      if (!v.trim()) return 'Please enter your email address.';
+      return EMAIL_RE.test(v.trim()) ? '' : 'Enter a valid email address, like name@example.com.';
+    },
+    message: (v) => (v.trim() ? '' : 'Please write a message.')
+  };
+ 
+  function setFieldError(name, msg) {
+    const wrap = $(`[data-field="${name}"]`, form);
+    const input = form.elements[name];
+    $(`#${name}-error`).textContent = msg;
+    wrap.classList.toggle('invalid', Boolean(msg));
+    if (msg) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
+    return !msg;
+  }
+  const validateField = (name) => setFieldError(name, validators[name](form.elements[name].value));
+ 
+  Object.keys(validators).forEach((name) => {
+    const input = form.elements[name];
+    input.addEventListener('blur', () => { if (input.value || input.getAttribute('aria-invalid')) validateField(name); });
+    input.addEventListener('input', () => { if (input.getAttribute('aria-invalid')) validateField(name); });
+  });
+ 
+  function showStatus(type, html) {
+    statusEl.className = `form-status show ${type}`;
+    statusEl.innerHTML = `${icon(type === 'success' ? 'check' : 'alert', 20)}<div>${html}</div>`;
+  }
+  const clearStatus = () => { statusEl.className = 'form-status'; statusEl.innerHTML = ''; };
+  const emailFallback = () => SITE_CONFIG.contactEmail
+    ? ` You can also email me directly at <a href="mailto:${esc(SITE_CONFIG.contactEmail)}">${esc(SITE_CONFIG.contactEmail)}</a>.`
+    : '';
+ 
+  function setLoading(on) {
+    form.classList.toggle('is-loading', on);
+    submitBtn.disabled = on;
+    submitBtn.setAttribute('aria-busy', String(on));
+    submitLabel.textContent = on ? 'Sending…' : 'Send a Message';
+  }
+ 
+  async function sendMessage(payload) {
+    const endpoint = SITE_CONFIG.formEndpoint.trim();
+    if (!endpoint) {
+      console.warn('[Contact form] SITE_CONFIG.formEndpoint is empty. Add your form service endpoint to enable email delivery.');
+      const err = new Error('not-configured'); err.code = 'not-configured'; throw err;
+    }
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), SITE_CONFIG.formTimeoutSeconds * 1000);
+    let res;
+    try {
+      res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...SITE_CONFIG.formExtraFields, _subject: SITE_CONFIG.formSubject, ...payload }),
+        signal: controller.signal
+      });
+    } catch (e) {
+      const err = new Error('network'); err.code = e.name === 'AbortError' ? 'timeout' : 'network'; throw err;
+    } finally { clearTimeout(timer); }
+ 
+    let data = null;
+    try { data = await res.json(); } catch (e) { /* some services return no JSON body */ }
+    const failed = !res.ok || (data && (data.success === false || data.ok === false));
+    if (failed) { const err = new Error('rejected'); err.code = 'rejected'; throw err; }
+  }
+ 
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (submitBtn.disabled) return;
+    clearStatus();
+ 
+    const results = Object.keys(validators).map((n) => [n, validateField(n)]);
+    const firstBad = results.find(([, ok]) => !ok);
+    if (firstBad) { form.elements[firstBad[0]].focus(); return; }
+ 
+    if (form.elements.website.value) return; // honeypot filled: bot, do nothing
+ 
+    const payload = {
+      name: form.elements.name.value.trim(),
+      email: form.elements.email.value.trim(),
+      message: form.elements.message.value.trim()
+    };
+ 
+    setLoading(true);
+    try {
+      await sendMessage(payload);
+      form.reset();
+      Object.keys(validators).forEach((n) => setFieldError(n, ''));
+      showStatus('success', '<strong>Message sent.</strong> Thanks for reaching out. I will read it and reply by email.');
+    } catch (err) {
+      const reasons = {
+        'not-configured': "The contact form isn't connected to an email service yet, so your message was not sent.",
+        timeout: 'The request took too long, so your message was not sent. Please try again.',
+        network: 'Could not reach the server, so your message was not sent. Check your connection and try again.',
+        rejected: 'The form service rejected the message, so it was not sent. Check your details and try again.'
+      };
+      showStatus('error', `<strong>Message not sent.</strong> ${reasons[err.code] || 'Something went wrong. Please try again.'}${emailFallback()}`);
+    } finally {
+      setLoading(false);
+    }
+  });
+})();
+</script>
 </body>
 </html>
+ 
