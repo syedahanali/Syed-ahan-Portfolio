@@ -2478,3 +2478,82 @@ letter-spacing: 0.5px;
         text-align: center !important;
     }
 }
+/* =====================================
+   FINAL MOBILE FIX
+===================================== */
+
+@media screen and (max-width: 700px) {
+
+    /* ===== HERO ===== */
+
+    .hero-sec {
+        height: 420px;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .hero-content {
+        width: 100%;
+        margin: 0 0 40px 0;
+        padding: 0 15px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .video-editor {
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+    }
+
+    .portfoliyo {
+        font-size: 48px;
+        line-height: 1;
+        white-space: nowrap;
+    }
+
+
+    /* ===== MAIN BACKGROUND ===== */
+
+    .bg-color {
+        width: 100%;
+        min-height: auto;
+        overflow: hidden;
+    }
+
+
+    /* ===== SERVICES ===== */
+
+    .services-section {
+        padding: 60px 15px 70px;
+    }
+
+    .services-title {
+        font-size: 42px;
+        line-height: 1;
+        margin: 0 0 35px;
+    }
+
+    .services {
+        width: 100%;
+        gap: 15px;
+    }
+
+    .service {
+        width: 100%;
+        min-height: 65px;
+        padding: 12px 15px;
+        box-sizing: border-box;
+        border-radius: 15px;
+    }
+
+    .service h3 {
+        font-size: 16px;
+        line-height: 1.3;
+        text-align: center;
+    }
+
+}
