@@ -1,10 +1,51 @@
-/* ===== HERO SECTION ===== */
+/* =====================================================
+   GLOBAL RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: rgb(29, 21, 60);
+    color: white;
+    font-family: sans-serif;
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
 
 .hero-sec {
     height: 600px;
+    width: 100%;
+
     background-image: url("hand image.jpg");
     background-size: cover;
     background-position: center;
+
     position: relative;
 
     display: flex;
@@ -12,13 +53,13 @@
     justify-content: flex-end;
 
     font-family: sans-serif;
+
     overflow: hidden;
 }
 
-/* Dark overlay */
-
 .hero-sec::before {
     content: "";
+
     position: absolute;
     inset: 0;
 
@@ -28,8 +69,6 @@
         rgba(29, 21, 60, 0.15)
     );
 }
-
-/* Hero content */
 
 .hero-content {
     position: relative;
@@ -43,10 +82,9 @@
     text-align: right;
 }
 
-/* Small heading */
-
 .video-editor {
     font-family: sans-serif;
+
     font-size: 1.4rem;
     font-weight: 600;
 
@@ -54,8 +92,6 @@
 
     margin-bottom: 10px;
 }
-
-/* Main heading */
 
 .portfoliyo {
     font-family: "Caacupe One", sans-serif;
@@ -67,10 +103,16 @@
 
     margin: 0;
 }
-/* ===== MAIN BACKGROUND ===== */
+
+
+/* =====================================================
+   MAIN BACKGROUND
+===================================================== */
 
 .bg-color {
     position: relative;
+
+    width: 100%;
 
     background-color: rgb(29, 21, 60);
 
@@ -80,11 +122,51 @@
 }
 
 
-/* ===== SERVICES SECTION ===== */
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.portfolio-nav {
+    position: relative;
+    z-index: 10;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 45px;
+
+    padding: 35px 30px 0;
+}
+
+.portfolio-nav a {
+    color: rgba(255, 255, 255, 0.75);
+
+    font-family: sans-serif;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s ease;
+}
+
+.portfolio-nav a:hover {
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   SERVICES SECTION
+===================================================== */
 
 .services-section {
-    padding-top: 120px;
-    padding-bottom: 100px;
+    padding: 120px 30px 100px;
 }
 
 .services-title {
@@ -100,9 +182,6 @@
     margin-bottom: 80px;
 }
 
-
-/* Services container */
-
 .services {
     display: flex;
 
@@ -111,10 +190,9 @@
     align-items: center;
 
     gap: 25px;
+
+    width: 100%;
 }
-
-
-/* Individual service */
 
 .service {
     width: 75%;
@@ -125,6 +203,8 @@
     align-items: center;
     justify-content: center;
 
+    padding: 15px 25px;
+
     border: 1px solid rgba(255, 255, 255, 0.3);
 
     border-radius: 18px;
@@ -134,9 +214,6 @@
     transition: 0.3s ease;
 }
 
-
-/* Service text */
-
 .service h3 {
     color: white;
 
@@ -145,11 +222,12 @@
     font-size: 2rem;
     font-weight: 400;
 
+    line-height: 1.3;
+
+    text-align: center;
+
     margin: 0;
 }
-
-
-/* Service hover */
 
 .service:hover {
     transform: translateY(-5px);
@@ -163,18 +241,17 @@
 }
 
 
-/* ===== MY WORK SECTION ===== */
+/* =====================================================
+   MY WORK SECTION
+===================================================== */
 
 .my-work-section {
     position: relative;
 
     overflow: hidden;
 
-    padding-bottom: 120px;
+    padding: 0 30px 120px;
 }
-
-
-/* Soft premium glow - left */
 
 .my-work-section::before {
     content: "";
@@ -196,9 +273,6 @@
     pointer-events: none;
 }
 
-
-/* Soft premium glow - right */
-
 .my-work-section::after {
     content: "";
 
@@ -219,9 +293,6 @@
     pointer-events: none;
 }
 
-
-/* My Work heading */
-
 .my-work {
     position: relative;
 
@@ -240,9 +311,6 @@
     margin-bottom: 80px;
 }
 
-
-/* Videos container */
-
 .videos {
     position: relative;
 
@@ -251,25 +319,22 @@
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     gap: 45px;
 
-    height: auto;
+    width: 100%;
 
-    padding: 0 40px;
+    padding: 0 20px;
 }
-
-
-/* All video cards */
 
 .video1,
 .video2,
 .video3 {
     width: 300px;
-
     height: 550px;
+
+    flex-shrink: 0;
 
     object-fit: cover;
 
@@ -288,9 +353,6 @@
         border-color 0.3s ease;
 }
 
-
-/* Video hover */
-
 .video1:hover,
 .video2:hover,
 .video3:hover {
@@ -302,10 +364,27 @@
         0 25px 55px rgba(0, 0, 0, 0.5);
 }
 
+.more-work-text {
+    position: relative;
+    z-index: 2;
 
-/* =====================================
-   WEBSITE DESIGNING SECTION
-===================================== */
+    color: rgba(255, 255, 255, 0.55);
+
+    font-family: sans-serif;
+
+    font-size: 0.95rem;
+
+    text-align: center;
+
+    margin: 45px auto 30px;
+
+    padding: 0 20px;
+}
+
+
+/* =====================================================
+   WEBSITE DESIGNING
+===================================================== */
 
 .website-designing {
     position: relative;
@@ -333,11 +412,6 @@
     overflow: hidden;
 }
 
-
-/* =====================================
-   BACKGROUND GLOW
-===================================== */
-
 .website-designing::before {
     content: "";
 
@@ -357,7 +431,6 @@
 
     pointer-events: none;
 }
-
 
 .website-designing::after {
     content: "";
@@ -379,11 +452,6 @@
     pointer-events: none;
 }
 
-
-/* =====================================
-   SECTION HEADING
-===================================== */
-
 .website-heading {
     position: relative;
 
@@ -396,7 +464,6 @@
     margin: 0 auto 100px;
 }
 
-
 .website-label {
     display: inline-block;
 
@@ -405,7 +472,6 @@
     font-family: sans-serif;
 
     font-size: 0.85rem;
-
     font-weight: 600;
 
     letter-spacing: 4px;
@@ -413,21 +479,18 @@
     margin-bottom: 20px;
 }
 
-
 .website-heading h2 {
     font-family: "Caacupe One", sans-serif;
 
     color: white;
 
     font-size: 7rem;
-
     font-weight: 500;
 
     line-height: 1;
 
     margin: 0 0 25px;
 }
-
 
 .website-heading p {
     color: rgba(255, 255, 255, 0.72);
@@ -442,11 +505,6 @@
 
     margin: auto;
 }
-
-
-/* =====================================
-   WEBSITE PREVIEWS
-===================================== */
 
 .website-previews {
     position: relative;
@@ -463,11 +521,6 @@
 
     gap: 28px;
 }
-
-
-/* =====================================
-   WEBSITE PREVIEW CARD
-===================================== */
 
 .website-preview {
     position: relative;
@@ -496,7 +549,6 @@
         border-color 0.4s ease;
 }
 
-
 .website-preview:hover {
     transform: translateY(-8px);
 
@@ -505,11 +557,6 @@
     box-shadow:
         0 35px 75px rgba(0, 0, 0, 0.45);
 }
-
-
-/* =====================================
-   SCREENSHOT
-===================================== */
 
 .website-preview img {
     width: 100%;
@@ -527,15 +574,9 @@
     transition: transform 0.5s ease;
 }
 
-
 .website-preview:hover img {
     transform: scale(1.025);
 }
-
-
-/* =====================================
-   NUMBER
-===================================== */
 
 .preview-number {
     position: absolute;
@@ -548,7 +589,6 @@
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     width: 45px;
@@ -565,18 +605,12 @@
     font-family: sans-serif;
 
     font-size: 0.8rem;
-
     font-weight: 600;
 
     letter-spacing: 1px;
 
     backdrop-filter: blur(8px);
 }
-
-
-/* =====================================
-   PROJECT INFORMATION
-===================================== */
 
 .website-project-info {
     position: relative;
@@ -608,11 +642,6 @@
     overflow: hidden;
 }
 
-
-/* =====================================
-   PROJECT LABEL
-===================================== */
-
 .website-project-label {
     display: inline-block;
 
@@ -621,7 +650,6 @@
     font-family: sans-serif;
 
     font-size: 0.8rem;
-
     font-weight: 600;
 
     letter-spacing: 3px;
@@ -629,29 +657,18 @@
     margin-bottom: 18px;
 }
 
-
-/* =====================================
-   PROJECT TITLE
-===================================== */
-
 .website-project-info h3 {
     color: white;
 
     font-family: "Caacupe One", sans-serif;
 
     font-size: 3.5rem;
-
     font-weight: 500;
 
     line-height: 1.05;
 
     margin: 0 0 25px;
 }
-
-
-/* =====================================
-   DESCRIPTION
-===================================== */
 
 .website-description {
     color: rgba(255, 255, 255, 0.72);
@@ -667,11 +684,6 @@
     margin: 0 0 30px;
 }
 
-
-/* =====================================
-   FEATURES
-===================================== */
-
 .website-features {
     display: flex;
 
@@ -681,7 +693,6 @@
 
     margin-bottom: 30px;
 }
-
 
 .website-features p {
     color: rgba(255, 255, 255, 0.75);
@@ -695,11 +706,6 @@
     margin: 0;
 }
 
-
-/* =====================================
-   NOTE
-===================================== */
-
 .website-note {
     color: rgba(255, 255, 255, 0.42);
 
@@ -712,11 +718,6 @@
     margin: 0 0 30px;
 }
 
-
-/* =====================================
-   WEBSITE BUTTONS
-===================================== */
-
 .website-buttons {
     display: flex;
 
@@ -727,76 +728,16 @@
     flex-wrap: wrap;
 }
 
-
-/* =====================================
-   LIVE WEBSITE BUTTON
-===================================== */
-
-.live-website-btn {
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: fit-content;
-
-    padding: 16px 28px;
-
-    border-radius: 12px;
-
-    background: #30497d;
-
-    border: 1px solid rgba(255, 255, 255, 0.25);
-
-    color: white;
-
-    font-family: sans-serif;
-
-    font-size: 0.95rem;
-
-    font-weight: 600;
-
-    text-decoration: none;
-
-    box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.25);
-
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-
-.live-website-btn:hover {
-    background: #3b5b99;
-
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 18px 40px rgba(48, 73, 125, 0.45);
-}
-
-
-/* =====================================
-   START A PROJECT BUTTON
-===================================== */
-
+.live-website-btn,
 .start-project-btn {
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
     width: fit-content;
 
     padding: 16px 28px;
-
-    margin: 0;
-
-    box-sizing: border-box;
 
     border-radius: 12px;
 
@@ -809,7 +750,6 @@
     font-family: sans-serif;
 
     font-size: 0.95rem;
-
     font-weight: 600;
 
     text-decoration: none;
@@ -823,7 +763,7 @@
         box-shadow 0.3s ease;
 }
 
-
+.live-website-btn:hover,
 .start-project-btn:hover {
     background: #3b5b99;
 
@@ -834,337 +774,551 @@
 }
 
 
-/* =====================================
-   FINAL RESPONSIVE MOBILE
-===================================== */
+/* =====================================================
+   ABOUT ME
+===================================================== */
+
+.about-me-section {
+    position: relative;
+
+    padding: 150px 7%;
+
+    background: rgb(29, 21, 60);
+
+    overflow: hidden;
+}
+
+.about-me-heading {
+    text-align: center;
+
+    max-width: 800px;
+
+    margin: 0 auto 90px;
+}
+
+.about-me-heading h2 {
+    font-family: "Caacupe One", sans-serif;
+
+    color: white;
+
+    font-size: 7rem;
+    font-weight: 500;
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+}
+
+.about-me-heading p {
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+}
+
+.about-me-content {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 90px;
+}
+
+.about-image-box {
+    flex: 0 0 390px;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.about-image-frame {
+    width: 350px;
+    height: 450px;
+
+    padding: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.03)
+        );
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35);
+
+    overflow: hidden;
+}
+
+.about-image-frame img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 18px;
+}
+
+.about-text {
+    flex: 1;
+
+    max-width: 600px;
+}
+
+.about-label {
+    display: inline-block;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+.about-text h3 {
+    color: white;
+
+    font-family: "Caacupe One", sans-serif;
+
+    font-size: 4rem;
+    font-weight: 500;
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+}
+
+.about-text p {
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+}
+
+.about-skills {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.about-skills span {
+    padding: 10px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 30px;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 0.85rem;
+
+    background: rgba(255, 255, 255, 0.04);
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-section {
+    position: relative;
+
+    padding: 150px 7%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #202d55 0%,
+            #25345f 100%
+        );
+
+    overflow: hidden;
+}
+
+.contact-heading {
+    text-align: center;
+
+    max-width: 800px;
+
+    margin: 0 auto 80px;
+}
+
+.contact-label {
+    display: inline-block;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+.contact-heading h2 {
+    color: white;
+
+    font-family: "Caacupe One", sans-serif;
+
+    font-size: 7rem;
+    font-weight: 500;
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+}
+
+.contact-heading p {
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+}
+
+.contact-content {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+
+    align-items: stretch;
+}
+
+.contact-main {
+    padding: 55px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.12),
+            rgba(255, 255, 255, 0.035)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+.contact-small-title {
+    display: inline-block;
+
+    color: rgba(255, 255, 255, 0.5);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+.contact-main h3 {
+    color: white;
+
+    font-family: "Caacupe One", sans-serif;
+
+    font-size: 4rem;
+    font-weight: 500;
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+}
+
+.contact-main p {
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+.contact-main-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px 28px;
+
+    border-radius: 12px;
+
+    background: #30497d;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    color: white;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.contact-main-btn:hover {
+    background: #3b5b99;
+
+    transform: translateY(-4px);
+}
+
+.contact-details {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.contact-item {
+    min-height: 82px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 0 20px;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: white;
+
+    transition: 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateX(5px);
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.contact-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    font-weight: 600;
+}
+
+.contact-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    min-width: 0;
+
+    flex: 1;
+}
+
+.contact-info span {
+    color: rgba(255, 255, 255, 0.45);
+
+    font-size: 0.65rem;
+
+    letter-spacing: 2px;
+
+    font-weight: 600;
+}
+
+.contact-info strong {
+    color: white;
+
+    font-size: 0.9rem;
+
+    font-weight: 500;
+
+    overflow-wrap: anywhere;
+}
+
+.contact-arrow {
+    color: rgba(255, 255, 255, 0.6);
+
+    font-size: 1rem;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer-section {
+    position: relative;
+
+    padding: 80px 7% 30px;
+
+    background: #17132f;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 60px;
+
+    padding-bottom: 55px;
+}
+
+.footer-brand {
+    max-width: 450px;
+}
+
+.footer-brand h2 {
+    color: white;
+
+    font-family: "Caacupe One", sans-serif;
+
+    font-size: 3rem;
+    font-weight: 500;
+
+    margin-bottom: 15px;
+}
+
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.5);
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+}
+
+.footer-links {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 30px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.6);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 25px;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.4);
+
+    font-size: 0.75rem;
+}
+
+.footer-socials {
+    display: flex;
+
+    gap: 22px;
+}
+
+.footer-socials a {
+    color: rgba(255, 255, 255, 0.5);
+
+    font-size: 0.75rem;
+
+    transition: 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: white;
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVE
+===================================================== */
 
 @media screen and (max-width: 700px) {
 
-    /* ===== HERO ===== */
-
-    .hero-sec {
-        height: 500px;
-        width: 100%;
-        background-size: cover;
-        background-position: center;
-    }
-
-    .hero-content {
-        width: 100%;
-        margin-right: 20px;
-        margin-bottom: 45px;
-        padding: 0 15px;
-        box-sizing: border-box;
-        text-align: right;
-    }
-
-    .video-editor {
-        font-size: 13px;
-        letter-spacing: 1.5px;
-        margin-bottom: 10px;
-    }
-
-    .portfoliyo {
-        font-size: 4rem;
-        line-height: 0.9;
-        white-space: nowrap;
-    }
-
-
-    /* ===== NAVIGATION ===== */
-
-    .portfolio-nav {
-        padding: 25px 15px 0;
-        gap: 18px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .portfolio-nav a {
-        font-size: 11px;
-        letter-spacing: 1px;
-    }
-
-
-    /* ===== SERVICES ===== */
-
-    .services-section {
-        padding: 70px 15px 80px;
-    }
-
-    .services-title {
-        font-size: 3rem;
-        margin-bottom: 40px;
-    }
-
-    .services {
-        width: 100%;
-        gap: 15px;
-    }
-
-    .service {
-        width: 100%;
-        min-height: 70px;
-        padding: 12px 15px;
-        box-sizing: border-box;
-    }
-
-    .service h3 {
-        font-size: 1rem;
-        text-align: center;
-        line-height: 1.3;
-    }
-
-
-    /* ===== MY WORK ===== */
-
-    .my-work-section {
-        padding-bottom: 80px;
-    }
-
-    .my-work {
-        font-size: 3rem;
-        margin-top: 80px;
-        margin-bottom: 40px;
-        padding: 0 15px;
-    }
-
-    .videos {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-        width: 100%;
-        padding: 0 15px;
-        box-sizing: border-box;
-    }
-
-    .video1,
-    .video2,
-    .video3 {
-        width: 280px;
-        max-width: 100%;
-        height: 480px;
-        box-sizing: border-box;
-    }
-
-    .more-work-text {
-        margin-top: 30px;
-        padding: 0 20px;
-        font-size: 0.8rem;
-        text-align: center;
-    }
-
-
-    /* ===== WEBSITE DESIGN ===== */
-
-    .website-designing {
-        padding: 80px 15px 90px;
-    }
-
-    .website-heading {
-        margin-bottom: 50px;
-    }
-
-    .website-label {
-        font-size: 10px;
-        letter-spacing: 2px;
-    }
-
-    .website-heading h2 {
-        font-size: 3rem;
-        line-height: 1.05;
-    }
-
-    .website-heading p {
-        font-size: 0.9rem;
-    }
-
-    .website-previews {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        width: 100%;
-    }
-
-    .website-preview {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .website-preview img {
-        width: 100%;
-        height: 240px;
-    }
-
-    .website-project-info {
-        width: 100%;
-        padding: 35px 25px;
-        box-sizing: border-box;
-    }
-
-    .website-project-info h3 {
-        font-size: 2.3rem;
-    }
-
-    .website-description {
-        font-size: 0.9rem;
-    }
-
-    .website-buttons {
-        display: flex !important;
-        flex-direction: column;
-        gap: 12px;
-        width: 100%;
-    }
-
-    .website-buttons .live-website-btn,
-    .website-buttons .start-project-btn {
-        width: 100% !important;
-        margin: 0 !important;
-        box-sizing: border-box;
-    }
-
-
-    /* ===== ABOUT ===== */
-
-    .about-me-section {
-        padding: 80px 15px 90px;
-    }
-
-    .about-me-heading {
-        margin-bottom: 50px;
-    }
-
-    .about-me-heading h2 {
-        font-size: 3rem;
-    }
-
-    .about-me-heading p {
-        font-size: 0.9rem;
-    }
-
-    .about-me-content {
-        flex-direction: column;
-        gap: 50px;
-        width: 100%;
-    }
-
-    .about-image-box {
-        width: 100%;
-        flex: none;
-    }
-
-    .about-image-frame {
-        width: min(320px, 90vw);
-        height: 410px;
-    }
-
-    .about-text {
-        width: 100%;
-        text-align: center;
-    }
-
-    .about-text h3 {
-        font-size: 2.3rem;
-    }
-
-    .about-text p {
-        font-size: 0.9rem;
-    }
-
-    .about-skills {
-        justify-content: center;
-    }
-
-
-    /* ===== CONTACT ===== */
-
-    .contact-section {
-        padding: 80px 15px 90px;
-    }
-
-    .contact-heading {
-        margin-bottom: 50px;
-    }
-
-    .contact-heading h2 {
-        font-size: 3rem;
-    }
-
-    .contact-heading p {
-        font-size: 0.9rem;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        width: 100%;
-    }
-
-    .contact-main {
-        padding: 35px 25px;
-    }
-
-    .contact-main h3 {
-        font-size: 2.5rem;
-    }
-
-    .contact-main p {
-        font-size: 0.9rem;
-    }
-
-    .contact-main-btn {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .contact-item {
-        min-height: 80px;
-        padding: 0 15px;
-    }
-
-
-    /* ===== FOOTER ===== */
-
-    .footer-section {
-        padding: 70px 15px 25px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .footer-brand {
-        max-width: 100%;
-    }
-
-    .footer-brand h2 {
-        font-size: 2.5rem;
-    }
-
-    .footer-brand p {
-        font-size: 0.85rem;
-    }
-
-    .footer-links {
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    .footer-socials {
-        flex-wrap: wrap;
-        gap: 18px;
-    }
-
-
-    /* ===== GLOBAL MOBILE SAFETY ===== */
+    /* ---------- GLOBAL ---------- */
 
     html,
     body {
@@ -1173,9 +1327,820 @@
         overflow-x: hidden;
     }
 
-    img,
-    video {
+    .bg-color {
+        min-height: auto;
+        width: 100%;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero-sec {
+        width: 100%;
+        height: 500px;
+
+        background-size: cover;
+        background-position: center;
+    }
+
+    .hero-content {
+        width: 100%;
+
+        margin-right: 20px;
+        margin-bottom: 40px;
+
+        padding: 0 15px;
+
+        box-sizing: border-box;
+
+        text-align: right;
+    }
+
+    .video-editor {
+        font-size: 11px;
+
+        letter-spacing: 1.5px;
+
+        margin-bottom: 10px;
+    }
+
+    .portfoliyo {
+        font-size: 3.8rem;
+
+        line-height: 0.9;
+
+        white-space: nowrap;
+    }
+
+
+    /* ---------- NAV ---------- */
+
+    .portfolio-nav {
+        width: 100%;
+
+        padding: 25px 15px 0;
+
+        gap: 15px 20px;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .portfolio-nav a {
+        font-size: 10px;
+
+        letter-spacing: 1px;
+    }
+
+
+    /* ---------- SERVICES ---------- */
+
+    .services-section {
+        width: 100%;
+
+        padding: 70px 15px 80px;
+    }
+
+    .services-title {
+        font-size: 3.2rem;
+
+        line-height: 1;
+
+        margin-bottom: 40px;
+    }
+
+    .services {
+        width: 100%;
+
+        gap: 15px;
+    }
+
+    .service {
+        width: 100%;
+
+        min-height: 70px;
+
+        padding: 12px 15px;
+    }
+
+    .service h3 {
+        font-size: 1rem;
+
+        line-height: 1.35;
+
+        text-align: center;
+    }
+
+
+    /* ---------- MY WORK ---------- */
+
+    .my-work-section {
+        width: 100%;
+
+        padding: 0 15px 80px;
+    }
+
+    .my-work {
+        font-size: 3.2rem;
+
+        line-height: 1;
+
+        margin-top: 50px;
+        margin-bottom: 40px;
+
+        padding: 0;
+    }
+
+    .videos {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 25px;
+
+        padding: 0;
+    }
+
+    .video1,
+    .video2,
+    .video3 {
+        width: min(280px, 100%);
+
+        height: 480px;
+
+        flex-shrink: 1;
+    }
+
+    .more-work-text {
+        font-size: 0.8rem;
+
+        line-height: 1.5;
+
+        margin-top: 30px;
+
+        padding: 0 10px;
+    }
+
+    .my-work-section::before {
+        width: 250px;
+        height: 250px;
+
+        left: -150px;
+    }
+
+    .my-work-section::after {
+        width: 250px;
+        height: 250px;
+
+        right: -150px;
+    }
+
+
+    /* ---------- WEBSITE DESIGN ---------- */
+
+    .website-designing {
+        width: 100%;
+
+        padding: 80px 15px 90px;
+    }
+
+    .website-heading {
+        width: 100%;
+
+        margin-bottom: 45px;
+    }
+
+    .website-label {
+        font-size: 9px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 15px;
+    }
+
+    .website-heading h2 {
+        font-size: 2.8rem;
+
+        line-height: 1.05;
+
+        word-break: normal;
+
+        margin-bottom: 20px;
+    }
+
+    .website-heading p {
+        font-size: 0.88rem;
+
+        line-height: 1.6;
+
+        padding: 0 5px;
+    }
+
+    .website-previews {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .website-preview {
+        width: 100%;
+
+        padding: 8px;
+
+        border-radius: 18px;
+    }
+
+    .website-preview img {
+        width: 100%;
+
+        height: 220px;
+
+        border-radius: 12px;
+    }
+
+    .preview-number {
+        top: 17px;
+        left: 17px;
+
+        width: 38px;
+        height: 38px;
+
+        border-radius: 10px;
+
+        font-size: 0.7rem;
+    }
+
+    .website-project-info {
+        width: 100%;
+
+        margin-top: 30px;
+
+        padding: 30px 20px;
+
+        border-radius: 22px;
+    }
+
+    .website-project-label {
+        font-size: 0.65rem;
+
+        letter-spacing: 2px;
+    }
+
+    .website-project-info h3 {
+        font-size: 2.1rem;
+
+        line-height: 1.1;
+    }
+
+    .website-description {
+        font-size: 0.85rem;
+
+        line-height: 1.7;
+    }
+
+    .website-features {
+        gap: 10px;
+    }
+
+    .website-features p {
+        font-size: 0.82rem;
+
+        line-height: 1.5;
+    }
+
+    .website-note {
+        font-size: 0.68rem;
+    }
+
+    .website-buttons {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 12px;
+    }
+
+    .website-buttons .live-website-btn,
+    .website-buttons .start-project-btn {
+        width: 100%;
+
+        margin: 0;
+
+        padding: 14px 18px;
+
+        box-sizing: border-box;
+
+        text-align: center;
+
+        white-space: normal;
+    }
+
+
+    /* ---------- ABOUT ---------- */
+
+    .about-me-section {
+        width: 100%;
+
+        padding: 80px 15px 90px;
+    }
+
+    .about-me-heading {
+        width: 100%;
+
+        margin-bottom: 50px;
+    }
+
+    .about-me-heading h2 {
+        font-size: 3.2rem;
+
+        line-height: 1;
+    }
+
+    .about-me-heading p {
+        font-size: 0.88rem;
+
+        line-height: 1.6;
+    }
+
+    .about-me-content {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 45px;
+    }
+
+    .about-image-box {
+        width: 100%;
+
+        flex: none;
+
+        display: flex;
+
+        justify-content: center;
+    }
+
+    .about-image-frame {
+        width: min(300px, 90vw);
+
+        height: 390px;
+
+        padding: 8px;
+    }
+
+    .about-text {
+        width: 100%;
+
+        max-width: 100%;
+
+        text-align: center;
+    }
+
+    .about-label {
+        font-size: 0.7rem;
+
+        letter-spacing: 2px;
+    }
+
+    .about-text h3 {
+        font-size: 2.3rem;
+
+        line-height: 1.05;
+    }
+
+    .about-text p {
+        font-size: 0.88rem;
+
+        line-height: 1.7;
+    }
+
+    .about-skills {
+        justify-content: center;
+    }
+
+    .about-skills span {
+        font-size: 0.75rem;
+
+        padding: 9px 14px;
+    }
+
+
+    /* ---------- CONTACT ---------- */
+
+    .contact-section {
+        width: 100%;
+
+        padding: 80px 15px 90px;
+    }
+
+    .contact-heading {
+        width: 100%;
+
+        margin-bottom: 50px;
+    }
+
+    .contact-label {
+        font-size: 0.7rem;
+
+        letter-spacing: 2px;
+    }
+
+    .contact-heading h2 {
+        font-size: 3.2rem;
+
+        line-height: 1;
+    }
+
+    .contact-heading p {
+        font-size: 0.88rem;
+
+        line-height: 1.6;
+    }
+
+    .contact-content {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .contact-main {
+        width: 100%;
+
+        padding: 30px 20px;
+
+        border-radius: 22px;
+    }
+
+    .contact-small-title {
+        font-size: 0.65rem;
+
+        letter-spacing: 2px;
+    }
+
+    .contact-main h3 {
+        font-size: 2.5rem;
+
+        line-height: 1.05;
+    }
+
+    .contact-main p {
+        font-size: 0.88rem;
+
+        line-height: 1.7;
+    }
+
+    .contact-main-btn {
+        width: 100%;
+
+        padding: 14px 18px;
+
+        box-sizing: border-box;
+
+        text-align: center;
+    }
+
+    .contact-details {
+        width: 100%;
+
+        gap: 10px;
+    }
+
+    .contact-item {
+        width: 100%;
+
+        min-height: 72px;
+
+        padding: 0 12px;
+
+        box-sizing: border-box;
+    }
+
+    .contact-icon {
+        width: 36px;
+        height: 36px;
+
+        border-radius: 10px;
+
+        font-size: 0.8rem;
+    }
+
+    .contact-info span {
+        font-size: 0.58rem;
+
+        letter-spacing: 1.5px;
+    }
+
+    .contact-info strong {
+        font-size: 0.75rem;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    .footer-section {
+        width: 100%;
+
+        padding: 65px 15px 25px;
+    }
+
+    .footer-content {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 35px;
+
+        padding-bottom: 40px;
+    }
+
+    .footer-brand {
+        width: 100%;
+
         max-width: 100%;
     }
 
+    .footer-brand h2 {
+        font-size: 2.5rem;
+    }
+
+    .footer-brand p {
+        font-size: 0.82rem;
+
+        line-height: 1.6;
+    }
+
+    .footer-links {
+        width: 100%;
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 18px 25px;
+    }
+
+    .footer-links a {
+        font-size: 0.7rem;
+    }
+
+    .footer-bottom {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.68rem;
+
+        line-height: 1.5;
+    }
+
+    .footer-socials {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .footer-socials a {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media screen and (max-width: 380px) {
+
+    .hero-sec {
+        height: 460px;
+    }
+
+    .hero-content {
+        margin-right: 12px;
+
+        padding: 0 10px;
+    }
+
+    .video-editor {
+        font-size: 9px;
+
+        letter-spacing: 1px;
+    }
+
+    .portfoliyo {
+        font-size: 3.1rem;
+    }
+
+    .services-title,
+    .my-work,
+    .about-me-heading h2,
+    .contact-heading h2 {
+        font-size: 2.7rem;
+    }
+
+    .website-heading h2 {
+        font-size: 2.45rem;
+    }
+
+    .service h3 {
+        font-size: 0.9rem;
+    }
+
+    .video1,
+    .video2,
+    .video3 {
+        width: 260px;
+        height: 440px;
+    }
+
+    .website-preview img {
+        height: 190px;
+    }
+
+    .website-project-info h3 {
+        font-size: 1.8rem;
+    }
+
+    .about-text h3 {
+        font-size: 2rem;
+    }
+
+    .contact-main h3 {
+        font-size: 2.15rem;
+    }
+
+    .contact-info strong {
+        font-size: 0.68rem;
+    }
+}
+
+/* ================================
+   FINAL FIXES
+================================ */
+
+/* 1. NAV RIGHT SIDE */
+.portfolio-nav {
+    justify-content: center;
+   transform:translatex(400px);
+}
+
+
+/* 2. MY WORK - START A PROJECT CENTER */
+.my-work-section > .start-project-btn {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+
+/* 3. ABOUT IMAGE HOVER EFFECT */
+.about-image-frame {
+    position: relative;
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+}
+
+.about-image-frame::after {
+    content: "↗";
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(17, 24, 45, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+
+    color: white;
+    font-size: 18px;
+
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s ease;
+}
+
+.about-image-frame:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.45);
+}
+
+.about-image-frame:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ================================
+   FINAL FIXES
+================================ */
+
+/* 1. NAV RIGHT SIDE */
+.portfolio-nav {
+    justify-content: flex-end;
+    padding: 35px 55px 0;
+}
+
+
+/* 2. MY WORK - START A PROJECT CENTER */
+.my-work-section > .start-project-btn {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+
+/* 3. ABOUT IMAGE HOVER EFFECT */
+.about-image-frame {
+    position: relative;
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+}
+
+.about-image-frame::after {
+    content: "↗";
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(17, 24, 45, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+
+    color: white;
+    font-size: 18px;
+
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s ease;
+}
+
+.about-image-frame:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.45);
+}
+
+.about-image-frame:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* MOBILE NAV */
+@media screen and (max-width: 700px) {
+    .portfolio-nav {
+        justify-content: center;
+        padding: 25px 15px 0;
+    }
 }
