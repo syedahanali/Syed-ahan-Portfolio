@@ -2144,3 +2144,66 @@ a {
         padding: 25px 15px 0;
     }
 }
+
+/* ================================
+   NAVIGATION FINAL POSITION
+================================ */
+
+.portfolio-nav {
+    justify-content: center;
+    transform: translateX(150px);
+}
+
+/* Mobile */
+@media screen and (max-width: 700px) {
+    .portfolio-nav {
+        justify-content: center;
+        transform: none;
+    }
+}
+
+
+/* ================================
+   MOBILE HERO IMAGE + TEXT
+================================ */
+
+@media screen and (max-width: 700px) {
+
+    .hero-sec {
+        background-size: 92%;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .hero-content {
+        margin-right: 28px;
+        margin-bottom: 45px;
+        text-align: right;
+    }
+
+    .portfoliyo {
+        font-size: 4.8rem;
+    }
+
+}
+
+
+/* =====================================
+   MOBILE HERO + NAVIGATION FINAL FIX
+===================================== */
+
+@media screen and (max-width: 700px) {
+
+    /* HERO - Portfolio thoda neeche */
+    .hero-content {
+        transform: translateY(4px);
+    }
+
+
+    /* NAVIGATION - Mobile par center */
+    .portfolio-nav {
+        justify-content: center;
+        transform: none;
+    }
+
+}
