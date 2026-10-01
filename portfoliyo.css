@@ -2277,3 +2277,22 @@ a {
     }
 
 }
+/* =====================================
+   MOBILE HERO TEXT FINAL
+===================================== */
+
+@media screen and (max-width: 700px) {
+
+    .hero-content {
+        transform: translateX(1px);
+    }
+
+    .video-editor {
+        font-size: 0.82rem;
+    }
+
+    .portfoliyo {
+        font-size: 4.6rem;
+    }
+
+}
