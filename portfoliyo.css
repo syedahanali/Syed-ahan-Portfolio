@@ -2438,3 +2438,43 @@ letter-spacing: 0.5px;
     margin: 0 10px 0 0 !important;
     vertical-align: middle;
 }
+
+@media screen and (max-width: 700px) {
+
+    .hero-sec {
+        height: 400px !important;
+    }
+
+    .hero-content {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 20px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+
+    .video-editor {
+        font-size: 14px !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .portfoliyo {
+        font-size: 45px !important;
+        line-height: 1 !important;
+    }
+
+    .services-title {
+        font-size: 40px !important;
+    }
+
+    .service {
+        width: 90% !important;
+        min-height: 65px !important;
+    }
+
+    .service h3 {
+        font-size: 16px !important;
+        text-align: center !important;
+    }
+}
