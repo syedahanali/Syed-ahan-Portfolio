@@ -2221,3 +2221,26 @@ a {
     }
 
 }
+
+/* =====================================
+   FINAL MOBILE HERO + NAV FIX
+===================================== */
+
+@media screen and (max-width: 700px) {
+
+    /* Hand Image - pehle wali size */
+    .hero-sec {
+        background-size: cover;
+    }
+
+    /* Navigation - thoda chhota + 2px right */
+    .portfolio-nav {
+        justify-content: center;
+        transform: translateX(2px);
+    }
+
+    .portfolio-nav a {
+        font-size: 10px;
+    }
+
+}
