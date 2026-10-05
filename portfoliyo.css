@@ -2312,3 +2312,17 @@ a {
     text-align:center;
     white-space:normal;
 }
+
+/* FINAL MOBILE BUTTON SIZE */
+@media screen and (max-width:700px) {
+    .website-buttons .live-website-btn,
+    .website-buttons .start-project-btn {
+        width:100%;
+        margin:0;
+        padding:12px 16px;
+        font-size:.88rem;
+        box-sizing:border-box;
+        text-align:center;
+        white-space:normal;
+    }
+}
