@@ -2340,3 +2340,8 @@ a {
         padding: 10px 20px;
     }
 }
+@media (max-width: 700px) {
+    .video-editor {
+        font-size: 0.65rem !important;
+    }
+}
