@@ -85,7 +85,7 @@ a {
 .video-editor {
     font-family: sans-serif;
 
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: 600;
 
     letter-spacing: 3px;
@@ -2332,4 +2332,14 @@ a {
     display: block;
     border: 2px solid rgba(255, 255, 255, 0.35);
     background: #111;
+}
+@media (max-width: 768px) {
+    .video-editor {
+        font-size: 1rem;
+    }
+
+    .start-project-btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
 }
