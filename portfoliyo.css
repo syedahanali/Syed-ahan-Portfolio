@@ -1357,7 +1357,7 @@ a {
     }
 
     .video-editor {
-        font-size: 11px;
+        font-size: 8px;
 
         letter-spacing: 1.5px;
 
@@ -2334,9 +2334,6 @@ a {
     background: #111;
 }
 @media (max-width: 768px) {
-    .video-editor {
-        font-size: 1rem;
-    }
 
     .start-project-btn {
         font-size: 0.9rem;
